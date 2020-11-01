@@ -1,5 +1,9 @@
 package util;
 
+import model.Location;
+import model.Schedule;
+import model.Seat;
+import model.Ticket;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -26,6 +30,11 @@ public class DBUtil {
             properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
             configuration.setProperties(properties);
+
+            configuration.addAnnotatedClass(Location.class);
+            configuration.addAnnotatedClass(Schedule.class);
+            configuration.addAnnotatedClass(Seat.class);
+            configuration.addAnnotatedClass(Ticket.class);
 
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().
                     applySettings(configuration.getProperties()).build();

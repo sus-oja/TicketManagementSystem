@@ -1,6 +1,10 @@
 package model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(schema = "theatre", name = "tickets")
@@ -18,6 +22,16 @@ public class Ticket {
     private String ticketType;
     @Column(name = "price")
     private Double ticketPrice;
+
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_at")
+    private Date createdAt;
+
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "last_updated")
+    private Date lastUpdated;
 
     public Ticket() {
 
@@ -70,6 +84,21 @@ public class Ticket {
         this.ticketPrice = ticketPrice;
     }
 
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(Date lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
 }
 
 

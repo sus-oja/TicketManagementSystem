@@ -23,6 +23,7 @@ public class SeatDao {
                 transaction.rollback();
             }
         }
+        session.close();
     }
 
     public void removeSeat(Seat seat) {
@@ -43,5 +44,6 @@ public class SeatDao {
                 transaction.rollback();
             }
         }
+        session.close();
     }
 }

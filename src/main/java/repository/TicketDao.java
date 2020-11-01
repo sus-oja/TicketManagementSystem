@@ -23,6 +23,8 @@ public class TicketDao {
                 transaction.rollback();
             }
         }
+
+        session.close();
     }
 
    /* public void deleteTicket(Ticket ticket) {
@@ -43,5 +45,6 @@ public class TicketDao {
                 transaction.rollback();
             }
         }
+        session.close();
     }*/
 }

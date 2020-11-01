@@ -24,6 +24,7 @@ public class LocationDao {
                 transaction.rollback();
             }
         }
+        session.close();
     }
 
     public void removeLocation(Location location) {
@@ -44,5 +45,6 @@ public class LocationDao {
                 transaction.rollback();
             }
         }
+        session.close();
     }
 }
