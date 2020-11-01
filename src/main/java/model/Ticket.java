@@ -15,7 +15,7 @@ public class Ticket {
     @Column(name = "seat_id")
     private Long seatId;
     @Column(name = "type")
-    private Long ticketType;
+    private String ticketType;
     @Column(name = "price")
     private Double ticketPrice;
 
@@ -23,7 +23,7 @@ public class Ticket {
 
     }
 
-    public Ticket(Long scheduleId, Long seatId, Long ticketType, Double ticketPrice) {
+    public Ticket(Long scheduleId, Long seatId, String ticketType, Double ticketPrice) {
         this.scheduleId = scheduleId;
         this.seatId = seatId;
         this.ticketType = ticketType;
@@ -54,11 +54,11 @@ public class Ticket {
         this.seatId = seatId;
     }
 
-    public Long getTicketType() {
+    public String getTicketType() {
         return ticketType;
     }
 
-    public void setTicketType(Long ticketType) {
+    public void setTicketType(String ticketType) {
         this.ticketType = ticketType;
     }
 
@@ -69,4 +69,7 @@ public class Ticket {
     public void setTicketPrice(Double ticketPrice) {
         this.ticketPrice = ticketPrice;
     }
+
 }
+
+
