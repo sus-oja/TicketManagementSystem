@@ -12,20 +12,22 @@ public class Main {
 
         System.out.println(shows.getTitle());
     }
-}
-/*//Airika main test
-
+//Airika main test
+/*
 import model.Client;
 import repository.ClientDao;
 
-       public class Main {
 
-             public static void main(String[] args) {
+    public class createClient {
 
-                 Client client = new Client(
-                 "Annika", "Test", "annika@test.ee");
+        public static void main(String[] args) {
 
-                 ClientDao clientDao = new ClientDao();
-                 clientDao.createClient(client);
-             }
-}*/
+            Client client = new Client(
+                    "Annika", "Test", "annika@test.ee");
+
+            ClientDao clientDao = new ClientDao();
+            clientDao.createClient(client);
+        }
+    }*/
+}
+
