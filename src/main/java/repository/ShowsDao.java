@@ -1,6 +1,6 @@
-package Dao;
+package repository;
 
-import Model.Shows;
+import model.Shows;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.DBUtil;

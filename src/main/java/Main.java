@@ -1,5 +1,5 @@
-import Dao.ShowsDao;
-import Model.Shows;
+import repository.ShowsDao;
+import model.Shows;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,18 +15,18 @@ public class Main {
 
         /* Airika main test
 
-import model.Client;
-import repository.ClientDao;
+            import model.Client;
+            import repository.ClientDao;
 
-public class Main {
+            public class Main {
 
-    public static void main(String[] args) {
+                public static void main(String[] args) {
 
-        Client client = new Client(
-                "Annika", "Test", "annika@test.ee");
+                    Client client = new Client(
+                            "Annika", "Test", "annika@test.ee");
 
-        ClientDao clientDao = new ClientDao();
-        clientDao.createClient(client);
-    }*/
+                    ClientDao clientDao = new ClientDao();
+                    clientDao.createClient(client);
+                }*/
 
 }

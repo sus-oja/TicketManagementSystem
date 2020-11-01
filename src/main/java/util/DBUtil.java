@@ -1,6 +1,6 @@
 package util;
 
-import Model.Shows;
+import model.Shows;
 import model.Client;
 import model.Location;
 import model.Schedule;
