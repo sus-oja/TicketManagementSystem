@@ -1,6 +1,7 @@
 package util;
 
 import model.Client;
+import org.apache.commons.configuration.PropertiesConfiguration;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -13,17 +14,36 @@ public class DBUtil {
 
     public static SessionFactory getSessionFactory() {
         try{
+            // to manage credentials etc in a separate file
+            PropertiesConfiguration applicationProperties = new PropertiesConfiguration();
+            applicationProperties.load("application.properties");
+
             Configuration configuration = new Configuration();
             Properties properties = new Properties();
 
             properties.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
             properties.put(Environment.URL, "jdbc:mysql://localhost:3306/theatre?createDatabaseIfNotExist=true&serverTimezone=UTC");
-            properties.put(Environment.USER, "root");
-            properties.put(Environment.PASS, "ThureC6E!");
+
+            // all 3 database logins are here
+            // just comment out own to make a connection
+
+            //Airika user
+            properties.put(Environment.USER, applicationProperties.getString("dbUsernameAir"));
+            properties.put(Environment.PASS, applicationProperties.getString("dbPasswordAir"));
+            properties.put(Environment.DIALECT, applicationProperties.getString("dbDialectAir"));
+            //Kristiina user
+            /*properties.put(Environment.USER, applicationProperties.getString("dbUsernameKri"));
+            properties.put(Environment.PASS, applicationProperties.getString("dbPasswordKri"));
+            properties.put(Environment.DIALECT, applicationProperties.getString("dbDialectKri"));*/
+            //Susanna user
+            /*properties.put(Environment.USER, applicationProperties.getString("dbUsernameSus"));
+            properties.put(Environment.PASS, applicationProperties.getString("dbPasswordSus"));
+            properties.put(Environment.DIALECT, applicationProperties.getString("dbDialectSus"));*/
+
             properties.put(Environment.SHOW_SQL, "true");
-            properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
-            properties.put(Environment.HBM2DDL_AUTO, "update");
+            properties.put(Environment.HBM2DDL_AUTO, "update");             // this one should use carefully "create-drop" will do full data restart. Best even to comment out.
             properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+
 
             configuration.setProperties(properties);
 
