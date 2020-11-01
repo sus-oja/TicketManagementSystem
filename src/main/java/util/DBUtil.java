@@ -1,7 +1,6 @@
 package util;
 
 import model.Client;
-import org.apache.commons.configuration.PropertiesConfiguration;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
