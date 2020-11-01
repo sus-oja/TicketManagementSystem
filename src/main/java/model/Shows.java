@@ -3,24 +3,27 @@ package model;
 import javax.persistence.*;
 
 @Entity
-@Table(schema = "Theatre", name = "Shows")
+@Table(schema = "theatre", name = "shows")
 public class Shows {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //behavior of field in SQL
 
-    @Column(name = "Title")
+    @Column(name = "show_id")                   // AT lisas puuduva show_id
+    private int showId;
+
+    @Column(name = "title")
     private String title;
 
-    @Column(name = "Description")
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "Duration")
+    @Column(name = "duration")
     private String duration;
 
-    @Column(name = "Type")
+    @Column(name = "type")
     private String type;
 
-    @Column(name = "Director")
+    @Column(name = "director")
     private String director;
 
     public Shows(String title, String description, String duration, String type, String director) {
@@ -29,6 +32,14 @@ public class Shows {
         this.description = description;
         this.title = title;
         this.type = type;
+    }
+
+    public int getShowId() {
+        return showId;
+    }
+
+    public void setShowId(int showId) {
+        this.showId = showId;
     }
 
     public String getTitle() {

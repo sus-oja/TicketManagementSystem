@@ -36,18 +36,16 @@ public class DBUtil {
             //Airika user
             properties.put(Environment.USER, applicationProperties.getString("dbUsernameAir"));
             properties.put(Environment.PASS, applicationProperties.getString("dbPasswordAir"));
-            properties.put(Environment.DIALECT, applicationProperties.getString("dbDialectAir"));
             //Kristiina user
             /*properties.put(Environment.USER, applicationProperties.getString("dbUsernameKri"));
-            properties.put(Environment.PASS, applicationProperties.getString("dbPasswordKri"));
-            properties.put(Environment.DIALECT, applicationProperties.getString("dbDialectKri"));*/
+            properties.put(Environment.PASS, applicationProperties.getString("dbPasswordKri"));*/
             //Susanna user
             /*properties.put(Environment.USER, applicationProperties.getString("dbUsernameSus"));
-            properties.put(Environment.PASS, applicationProperties.getString("dbPasswordSus"));
-            properties.put(Environment.DIALECT, applicationProperties.getString("dbDialectSus"));*/
+            properties.put(Environment.PASS, applicationProperties.getString("dbPasswordSus"));*/
 
+            properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
             properties.put(Environment.SHOW_SQL, "true");
-            properties.put(Environment.HBM2DDL_AUTO, "update");             // this one should use carefully "create-drop" will do full data restart. Best even to comment out.
+            properties.put(Environment.HBM2DDL_AUTO, "create-drop");             // this one should use carefully "create-drop" will do full data restart. Best even to comment out.
             properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
 
@@ -61,8 +59,8 @@ public class DBUtil {
             configuration.addAnnotatedClass(Seat.class);
             configuration.addAnnotatedClass(Ticket.class);
 
-            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().
-                    applySettings(configuration.getProperties()).build();
+            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+                    .applySettings(configuration.getProperties()).build();
 
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
         } catch (Exception ex) {
@@ -70,5 +68,4 @@ public class DBUtil {
         }
         return sessionFactory;
     }
-
 }

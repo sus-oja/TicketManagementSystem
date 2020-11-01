@@ -1,10 +1,10 @@
 package repository;
 
 import model.Client;
-import org.hibernate.Hibernate;
+import util.DBUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import util.DBUtil;
+
 
 public class ClientDao {
 
@@ -24,6 +24,5 @@ public class ClientDao {
             }
         }
         session.close();
-
     }
 }
