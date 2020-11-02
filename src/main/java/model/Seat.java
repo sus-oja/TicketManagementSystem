@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(schema = "theatre", name = "seats")
@@ -14,17 +15,17 @@ public class Seat {
     private int seatNumber;
     @Column(name = "row_nr")
     private int rowNumber;
-    @Column(name = "location_id")
-    private Long locationId;
+
+    @OneToOne(mappedBy = "location_id")
+    private Location location;
 
     public Seat() {
 
     }
 
-    public Seat(int seatNumber, int rowNumber, Long locationId) {
+    public Seat(int seatNumber, int rowNumber) {
         this.seatNumber = seatNumber;
         this.rowNumber = rowNumber;
-        this.locationId = locationId;
     }
 
     public Long getSeatId() {
@@ -51,11 +52,4 @@ public class Seat {
         this.rowNumber = rowNumber;
     }
 
-    public Long getLocationId() {
-        return locationId;
-    }
-
-    public void setLocationId(Long locationId) {
-        this.locationId = locationId;
-    }
 }

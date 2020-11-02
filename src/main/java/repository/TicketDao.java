@@ -27,7 +27,7 @@ public class TicketDao {
         session.close();
     }
 
-   /* public void deleteTicket(Ticket ticket) {
+    public void deleteTicket(Ticket ticket) {
         Transaction transaction = null;
         Session session = DBUtil.getSessionFactory().openSession();
 
@@ -46,5 +46,5 @@ public class TicketDao {
             }
         }
         session.close();
-    }*/
+    }
 }

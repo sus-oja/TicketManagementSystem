@@ -14,6 +14,8 @@ public class Location {
     @Column(name = "max_seats")
     private int maxSeats;
 
+
+
     public Location() {
 
     }

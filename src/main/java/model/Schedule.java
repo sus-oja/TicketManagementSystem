@@ -14,19 +14,25 @@ public class Schedule {
     private Long scheduleId;
     @Column(name = "start_time")
     private Time startTime;
-    @Column(name = "show_id")
-    private Long showId;
-    @Column(name = "locationId")
-    private Long locationId;
+
+    @OneToMany(mappedBy = "schedule") //kas peaks olema ManyToMany?!
+    private Ticket ticket;
+
+    @OneToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
+
+    @OneToOne
+    @JoinColumn(name = "show_id")
+    private Shows show;
+
 
     public Schedule() {
 
     }
 
-    public Schedule(Time startTime, Long showId, Long locationId) {
+    public Schedule(Time startTime) {
         this.startTime = startTime;
-        this.showId = showId;
-        this.locationId = locationId;
     }
 
     public Long getScheduleId() {
@@ -45,19 +51,4 @@ public class Schedule {
         this.startTime = startTime;
     }
 
-    public Long getShowId() {
-        return showId;
-    }
-
-    public void setShowId(Long showId) {
-        this.showId = showId;
-    }
-
-    public Long getLocationId() {
-        return locationId;
-    }
-
-    public void setLocationId(Long locationId) {
-        this.locationId = locationId;
-    }
 }
