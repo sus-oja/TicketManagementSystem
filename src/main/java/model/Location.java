@@ -15,7 +15,6 @@ public class Location {
     private int maxSeats;
 
 
-
     public Location() {
 
     }

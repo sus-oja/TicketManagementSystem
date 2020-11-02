@@ -1,10 +1,11 @@
 package repository;
 
-import model.Schedule;
 import model.Ticket;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.DBUtil;
+
+import java.util.List;
 
 public class TicketDao {
 
@@ -45,6 +46,11 @@ public class TicketDao {
             }
         }
         session.close();
+    }
+
+    public List<Ticket> getTickets() {
+        Session session = DBUtil.getSessionFactory().openSession();
+        return session.createQuery("FROM tickets", Ticket.class).list();
     }
 
     public void deleteTicket(Ticket ticket) {

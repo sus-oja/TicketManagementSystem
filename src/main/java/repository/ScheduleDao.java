@@ -1,6 +1,5 @@
 package repository;
 
-import model.Location;
 import model.Schedule;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

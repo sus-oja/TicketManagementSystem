@@ -1,11 +1,12 @@
 package repository;
 
 import model.Location;
-import model.Schedule;
 import model.Ticket;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.DBUtil;
+
+import java.util.List;
 
 public class LocationDao {
 
@@ -46,6 +47,25 @@ public class LocationDao {
             }
         }
         session.close();
+    }
+
+    public Location getLocation(long locationId) {
+
+        try {
+            Session session = DBUtil.getSessionFactory().openSession();
+            Location location = session.find(Location.class, locationId);
+            return location;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.out.println("Unable to find the location you are looking for.");
+            return null;
+        }
+
+    }
+
+    public List<Location> getLocations() {
+        Session session = DBUtil.getSessionFactory().openSession();
+        return session.createQuery("FROM locations", Location.class).list();
     }
 
     public void removeLocation(Location location) {

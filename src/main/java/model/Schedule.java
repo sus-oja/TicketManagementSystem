@@ -15,7 +15,7 @@ public class Schedule {
     @Column(name = "start_time")
     private Time startTime;
 
-    @OneToMany(mappedBy = "schedule") //kas peaks olema ManyToMany?!
+    @OneToOne(mappedBy = "schedule")
     private Ticket ticket;
 
     @OneToOne

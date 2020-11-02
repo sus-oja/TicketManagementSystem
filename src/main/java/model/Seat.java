@@ -16,8 +16,10 @@ public class Seat {
     @Column(name = "row_nr")
     private int rowNumber;
 
-    @OneToOne(mappedBy = "location_id")
+    @OneToOne
+    @JoinColumn(name = "location_id")
     private Location location;
+
 
     public Seat() {
 
