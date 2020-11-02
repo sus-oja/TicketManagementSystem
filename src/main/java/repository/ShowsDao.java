@@ -10,9 +10,11 @@ import java.util.List;
 
 public class ShowsDao {
 
-    private static Session session = DBUtil.getSessionFactory().openSession();
 
     public void createShows(Shows shows) {
+
+        Session session = DBUtil.getSessionFactory().openSession();
+
         Transaction transaction = null;
 
         try {
@@ -20,7 +22,7 @@ public class ShowsDao {
             transaction = session.beginTransaction();
             session.save(shows);
             transaction.commit();
-            session.close();
+
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
 
@@ -28,8 +30,9 @@ public class ShowsDao {
                 transaction.rollback();
             }
         }
+        session.close();
     }
-    public static List<Shows> getShows() {
+    /*public static List<Shows> getShows() {
         return session.createQuery("from Shows", Shows.class).list();
     }
 
@@ -62,5 +65,5 @@ public class ShowsDao {
                 transaction.rollback();
             }
         }
-    }
+    }*/
 }

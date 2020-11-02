@@ -8,9 +8,8 @@ import util.DBUtil;
 import java.util.List;
 
 public class RunningShow {
-  /*  private static Object ShowsDao;
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Shows shows1 = new Shows("Emadepäev", "“Emadepäev” heitlik, paiguti naerma " +
                 "ja paiguti hulluks ajav lavastus täis kraaklemist, rõõmu, nuttu, " +
                 "armastust, ürgvarajasi hommikuid ja hirmhiliseid õhtuid, kõikjal " +
@@ -41,20 +40,10 @@ public class RunningShow {
                 "Taago Tubin");
 
         ShowsDao showsDao = new ShowsDao();
-        showsDao.createShows((Shows) ShowsDao);
+        showsDao.createShows(shows1);
 
 
-        System.out.println(((Shows) ShowsDao).getTitle());
-    }*/
-  public static void main(String[] args) {
-      List<Shows> allTheatre = ShowsDao.getShows();
+        System.out.println(shows1.getTitle());
 
-      for(Shows theatre : allTheatre) {
-          if(theatre.getTitle().equals("Emadepäev")) {
-              System.out.println("Your selected show");
-          }else{
-              System.out.println(theatre.getTitle()+theatre.getDescription());
-          }
-      }
-  }
+    }
 }
