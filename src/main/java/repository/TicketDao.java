@@ -48,10 +48,10 @@ public class TicketDao {
         session.close();
     }
 
-    public void bookTicket() {
+    /*public void bookTicket() {
         System.out.println("Which show would you like to see? Enter the ID from the schedule: ");
 
-    }
+    }*/
 
     public List<Ticket> getTickets() {
         Session session = DBUtil.getSessionFactory().openSession();

@@ -19,7 +19,7 @@ public class Ticket {
     @Column(name = "price")
     private Double ticketPrice;
 
-    @ManyToOne  //kas peaks olema ManyToMany?!
+    @ManyToOne
     @JoinColumn(name = "schedule_id")
     private Schedule schedule;
 

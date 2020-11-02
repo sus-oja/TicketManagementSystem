@@ -13,8 +13,6 @@ public class Seat {
     private Long seatId;
     @Column(name = "seat_nr")
     private int seatNumber;
-    @Column(name = "row_nr")
-    private int rowNumber;
 
     @OneToOne
     @JoinColumn(name = "location_id")
@@ -25,9 +23,8 @@ public class Seat {
 
     }
 
-    public Seat(int seatNumber, int rowNumber) {
+    public Seat(int seatNumber) {
         this.seatNumber = seatNumber;
-        this.rowNumber = rowNumber;
     }
 
     public Long getSeatId() {
@@ -46,12 +43,6 @@ public class Seat {
         this.seatNumber = seatNumber;
     }
 
-    public int getRowNumber() {
-        return rowNumber;
-    }
 
-    public void setRowNumber(int rowNumber) {
-        this.rowNumber = rowNumber;
-    }
 
 }

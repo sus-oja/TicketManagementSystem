@@ -19,6 +19,6 @@ public class LocationMain {
         locationDao.createLocation(chamberHall);
         locationDao.createLocation(cellarHall);
 
-        System.out.println("The show will be held in the room nr " + locationDao.getLocation(smallAuditorium.getLocationId()));
+        //System.out.println("The show will be held in the room nr " + locationDao.getLocation(smallAuditorium.getLocationId()));
     }
 }

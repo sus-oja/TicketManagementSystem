@@ -51,10 +51,10 @@ public class SeatDao {
         session.close();
     }
 
-    public List<Seat> getNumberOfAvailableSeats(Seat seat) {
+   /* public List<Seat> getNumberOfAvailableSeats(Seat seat) {
         Session session = DBUtil.getSessionFactory().openSession();
         return session.createQuery("FROM seats", Seat.class).list();
-    }
+    }*/
 
     public void removeSeat(Seat seat) {
         Transaction transaction = null;
