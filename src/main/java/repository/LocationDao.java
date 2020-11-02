@@ -55,12 +55,12 @@ public class LocationDao {
             Session session = DBUtil.getSessionFactory().openSession();
             Location location = session.find(Location.class, locationId);
             return location;
+            //session.close();
         } catch (Exception ex) {
             ex.printStackTrace();
             System.out.println("Unable to find the location you are looking for.");
             return null;
         }
-
     }
 
     public List<Location> getLocations() {
