@@ -1,15 +1,10 @@
 package menu;
 
-import model.Location;
-import model.Schedule;
 import model.Shows;
 import org.hibernate.Session;
-import repository.LocationDao;
-import repository.ScheduleDao;
 import repository.ShowsDao;
 import util.DBUtil;
 
-import java.sql.Date;
 import java.util.List;
 
 public class RunningShow {
@@ -46,31 +41,9 @@ public class RunningShow {
 
         ShowsDao showsDao = new ShowsDao();
         showsDao.createShows(shows1);
-        showsDao.createShows(shows2);
-        showsDao.createShows(shows3);
 
 
         System.out.println(shows1.getTitle());
-
-        createSchedule();
-    }
-
-    public static void createSchedule(){
-        //Schedule schedule = new Schedule(new Date(2020,12,1), 1 );
-        Schedule schedule = new Schedule(new Date(2020,10,1));
-
-        LocationDao locationDao = new LocationDao();
-        Location location = locationDao.getLocation(2); //andmebaasist IDga küsitud
-        schedule.setLocation(location);
-
-        ShowsDao showsDao = new ShowsDao();
-        Shows show = showsDao.getShow(2);
-        schedule.setShow(show);
-
-        ScheduleDao scheduleDao = new ScheduleDao();
-        scheduleDao.createSchedule(schedule);
-
-        System.out.println(schedule.getStartTime());
 
     }
 }

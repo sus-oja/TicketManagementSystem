@@ -2,7 +2,7 @@ package model;
 
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.sql.Time;
 
 @Entity
 @Table(schema = "theatre", name = "schedule")
@@ -10,13 +10,11 @@ import java.sql.Date;
 public class Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name = "schedule_id")
     private Long scheduleId;
-
     @Column(name = "start_time")
-    private Date startTime;
-    //______________________
+    private Time startTime;
+
     @OneToOne(mappedBy = "schedule")
     private Ticket ticket;
 
@@ -28,10 +26,12 @@ public class Schedule {
     @JoinColumn(name = "show_id")
     private Shows show;
 
+
     public Schedule() {
+
     }
 
-    public Schedule(Date startTime) {
+    public Schedule(Time startTime) {
         this.startTime = startTime;
     }
 
@@ -43,35 +43,12 @@ public class Schedule {
         this.scheduleId = scheduleId;
     }
 
-    public Date getStartTime() {
+    public Time getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(Time startTime) {
         this.startTime = startTime;
     }
 
-    public Ticket getTicket() {
-        return ticket;
-    }
-
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public Shows getShow() {
-        return show;
-    }
-
-    public void setShow(Shows show) {
-        this.show = show;
-    }
 }

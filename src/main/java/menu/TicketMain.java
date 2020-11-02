@@ -1,12 +1,9 @@
 package menu;
 
-import model.Schedule;
-import model.Shows;
 import model.Ticket;
 import repository.ScheduleDao;
 import repository.TicketDao;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class TicketMain {
@@ -19,46 +16,19 @@ public class TicketMain {
         TicketDao ticketDao = new TicketDao();
 
         System.out.println("WELCOME TO UGALA!");
-        System.out.println("Which show would you like to see? \nPlease enter ... from the schedule: ");
-
-// to see all shows in schedules
-        ScheduleDao scheduleDao = new ScheduleDao();
-        List<Schedule> schedules = scheduleDao.getSchedules();
-
-        for (Schedule s:schedules
-             ) {
-           System.out.println(s.getScheduleId()+ " " + s.getShow().getTitle() + " " + s.getStartTime() + " " + s.getLocation().getLocationName());
-        }
-
-
-        //scheduleDao.getScheduleEntry(scheduleId);
-
-
-       // int scheduleId = scan.nextInt();
+        System.out.println("Which show would you like to see? \nPlease enter the ID from the schedule: ");
+        int scheduleId = scan.nextInt();
 
 //ühendus Schedule tabeliga
-//get all schedules by show ID
-//public void mappingSheduleToTicet() {
+        ScheduleDao scheduleDao = new ScheduleDao();
+        scheduleDao.getScheduleEntry(scheduleId);
 
-        /*Schedule schedule = new Schedule();
-        ScheduleDao scheduleDao = new ScheduleDao();*/
+        System.out.println("How many tickets would you like to purchase? Enter number of tickets here: ");
+        int numberOfTickets = scan.nextInt();
 
-
-        //scheduleDao.getScheduleEntry(scheduleId);
-
-
-    System.out.println("How many tickets would you like to purchase? Enter number of tickets here: ");
-    int numberOfTickets = scan.nextInt();
-
-    System.out.println("Checking availability...");
-
-
-
+        System.out.println("Checking availability...");
 
 //siin peaks kontrollima, kas vajalikul hulgal ticket'eid on veel olemas
-
-
-
 
         System.out.println("What type of tickets would you like to purchase?\n");
         System.out.println("1 --- ADULT");

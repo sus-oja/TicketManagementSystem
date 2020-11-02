@@ -12,21 +12,18 @@ import java.util.Date;
 public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name = "ticket_id")
     private Long ticketId;
-
     @Column(name = "type")
     private TicketType ticketType;
-
     @Column(name = "price")
     private Double ticketPrice;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "schedule_id")
     private Schedule schedule;
 
-    @OneToOne (mappedBy = "ticket")
+    @OneToOne(mappedBy = "ticket")
     private Client client;
 
     @CreationTimestamp
@@ -40,6 +37,7 @@ public class Ticket {
     private Date lastUpdated;
 
     public Ticket() {
+
     }
 
     public Ticket(TicketType ticketType, Double ticketPrice) {
