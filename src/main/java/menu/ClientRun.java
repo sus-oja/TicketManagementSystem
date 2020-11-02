@@ -26,20 +26,4 @@ public class ClientRun {
             clientDao.createClient(newClient);
 
 
-
-
-
-
-
-            //Client client1 = Client.get(addclient);
-            //System.out.println("1. type first name: ");
-
-
-
-            /*Client client = new Client(
-                    "Annika", "Test", "annika@test.ee");
-
-            ClientDao clientDao = new ClientDao();
-            clientDao.createClient(client);*/
         }
-}
