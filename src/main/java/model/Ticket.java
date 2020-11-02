@@ -66,6 +66,8 @@ public class Ticket {
         return ticketPrice;
     }
 
+
+
     public void setTicketPrice(Double ticketPrice) {
         this.ticketPrice = ticketPrice;
     }

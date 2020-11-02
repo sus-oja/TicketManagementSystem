@@ -1,8 +1,10 @@
+import model.Ticket;
 import repository.ShowsDao;
 import model.Shows;
+import repository.TicketDao;
 
 public class Main {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Shows shows = new Shows(
                 "Beauty and the Beast", "bubbly and entertaining",
                 "2 hours and 30 minutes", "Musical", "John Johnson");
@@ -11,7 +13,7 @@ public class Main {
 
 
         System.out.println(shows.getTitle());
-    }
+    }*/
 //Airika main test
 /*
 import model.Client;
@@ -29,5 +31,12 @@ import repository.ClientDao;
             clientDao.createClient(client);
         }
     }*/
+
+
+    public static void main(String[] args) {
+        TicketDao ticketDao = new TicketDao();
+
+        ticketDao.bookTickets();
+    }
 }
 
