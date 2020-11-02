@@ -11,13 +11,13 @@ import java.util.List;
 public class LocationDao {
 
     public void createLocation(Location location) {
-        Transaction transaction = null;
         Session session = DBUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
+
 
         try {
             transaction = session.beginTransaction();
             session.save(location);
-
             transaction.commit();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());

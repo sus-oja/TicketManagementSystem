@@ -5,6 +5,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.DBUtil;
 
+import java.util.List;
+
 public class ScheduleDao {
 
     public void createSchedule(Schedule schedule) {
@@ -14,7 +16,6 @@ public class ScheduleDao {
         try {
             transaction = session.beginTransaction();
             session.save(schedule);
-
             transaction.commit();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -44,6 +45,25 @@ public class ScheduleDao {
             }
         }
         session.close();
+    }
+    public Schedule getSchedule(Long scheduleId) {
+        Session session = DBUtil.getSessionFactory().openSession();
+
+        try{
+            Schedule schedule = session.find(Schedule.class, scheduleId);
+            session.close();
+            return schedule;
+        }catch (Exception ex){
+            session.close();
+            System.out.println("Unable to find the schedule with id: " + scheduleId);
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Schedule> getSchedules(){
+        Session session = DBUtil.getSessionFactory().openSession();
+        return session.createQuery("all schedules", Schedule.class).list();
     }
 
     public Schedule getScheduleEntry(long scheduleId) {

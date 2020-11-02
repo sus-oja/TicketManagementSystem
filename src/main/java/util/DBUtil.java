@@ -4,7 +4,6 @@ import model.Shows;
 import model.Client;
 import model.Location;
 import model.Schedule;
-import model.Seat;
 import model.Ticket;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -34,14 +33,14 @@ public class DBUtil {
             // just comment out own to make a connection
 
             //Airika user
-            /*properties.put(Environment.USER, applicationProperties.getString("dbUsernameAir"));
-            properties.put(Environment.PASS, applicationProperties.getString("dbPasswordAir"));*/
+            properties.put(Environment.USER, applicationProperties.getString("dbUsernameAir"));
+            properties.put(Environment.PASS, applicationProperties.getString("dbPasswordAir"));
             //Kristiina user
             /*properties.put(Environment.USER, applicationProperties.getString("dbUsernameKri"));
             properties.put(Environment.PASS, applicationProperties.getString("dbPasswordKri"));*/
-            //Susanna user
+            /*//Susanna user
             properties.put(Environment.USER, applicationProperties.getString("dbUsernameSus"));
-            properties.put(Environment.PASS, applicationProperties.getString("dbPasswordSus"));
+            properties.put(Environment.PASS, applicationProperties.getString("dbPasswordSus"));*/
 
             properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
             properties.put(Environment.SHOW_SQL, "true");
@@ -56,7 +55,7 @@ public class DBUtil {
             configuration.addAnnotatedClass(Client.class);
             configuration.addAnnotatedClass(Location.class);
             configuration.addAnnotatedClass(Schedule.class);
-            configuration.addAnnotatedClass(Seat.class);
+            //configuration.addAnnotatedClass(Seat.class);
             configuration.addAnnotatedClass(Ticket.class);
 
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
