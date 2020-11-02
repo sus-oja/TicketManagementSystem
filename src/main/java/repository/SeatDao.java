@@ -1,5 +1,6 @@
 package repository;
 
+import model.Schedule;
 import model.Seat;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -18,6 +19,26 @@ public class SeatDao {
             transaction.commit();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
+
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        }
+        session.close();
+    }
+
+    public void updateSeat(Seat seat) {
+        Session session = DBUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
+
+        try {
+            transaction = session.beginTransaction();
+            session.update(seat);
+            transaction.commit();
+            System.out.println("The seat has been successfully updated.");
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
 
             if (transaction != null) {
                 transaction.rollback();

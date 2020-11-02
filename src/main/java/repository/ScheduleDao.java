@@ -1,20 +1,20 @@
 package repository;
 
+import model.Location;
 import model.Schedule;
-import model.Ticket;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.DBUtil;
 
-public class TicketDao {
+public class ScheduleDao {
 
-    public void createTicket(Ticket ticket) {
+    public void createSchedule(Schedule schedule) {
         Transaction transaction = null;
         Session session = DBUtil.getSessionFactory().openSession();
 
         try {
             transaction = session.beginTransaction();
-            session.save(ticket);
+            session.save(schedule);
 
             transaction.commit();
         } catch (Exception ex) {
@@ -24,19 +24,19 @@ public class TicketDao {
                 transaction.rollback();
             }
         }
-
         session.close();
     }
 
-    public void updateTicket(Ticket ticket) {
+    public void updateSchedule(Schedule schedule) {
         Session session = DBUtil.getSessionFactory().openSession();
         Transaction transaction = null;
 
         try {
             transaction = session.beginTransaction();
-            session.update(ticket);
+            session.update(schedule);
             transaction.commit();
-            System.out.println("The ticket has been successfully updated.");
+            System.out.println("The schedule has been successfully updated.");
+
         } catch (Exception ex) {
             ex.printStackTrace();
 
@@ -47,16 +47,15 @@ public class TicketDao {
         session.close();
     }
 
-    public void deleteTicket(Ticket ticket) {
+    public void removeSchedule(Schedule schedule) {
         Transaction transaction = null;
         Session session = DBUtil.getSessionFactory().openSession();
 
         try {
             transaction = session.beginTransaction();
-            session.delete(ticket);
-
+            session.delete(schedule);
             transaction.commit();
-            System.out.println("Your reservation has been successfully cancelled.");
+            System.out.println("The schedule has been successfully removed.");
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
