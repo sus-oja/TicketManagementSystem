@@ -36,6 +36,7 @@ public class DBUtil {
             //Airika user
             properties.put(Environment.USER, applicationProperties.getString("dbUsernameAir"));
             properties.put(Environment.PASS, applicationProperties.getString("dbPasswordAir"));
+
             //Kristiina user
             /*properties.put(Environment.USER, applicationProperties.getString("dbUsernameKri"));
             properties.put(Environment.PASS, applicationProperties.getString("dbPasswordKri"));*/

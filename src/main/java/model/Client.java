@@ -26,6 +26,8 @@ public class Client {
     private String email;
 
 
+
+
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at")
@@ -35,6 +37,9 @@ public class Client {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "last_updated")
     private Date lastUpdated;
+
+    public Client() {
+    }
 
     public Client(String firstName, String lastName, String email) {
         this.firstName = firstName;
