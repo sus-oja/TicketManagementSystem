@@ -3,6 +3,7 @@ package menu;
 import model.Client;
 import repository.ClientDao;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ClientRun {
@@ -24,7 +25,6 @@ public class ClientRun {
 
         ClientDao clientDao = new ClientDao();
         clientDao.createClient(newClient);
-
 
     }
 }
