@@ -25,7 +25,9 @@ public class Client {
     @Column(name = "email")
     private String email;
 
-
+    @OneToOne
+    @JoinColumn(name = "ticket_id")
+    private Ticket ticket;
 
 
     @CreationTimestamp
