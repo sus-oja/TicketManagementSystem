@@ -1,8 +1,7 @@
 package menu;
 
-import model.Client;
 import model.Ticket;
-import repository.ClientDao;
+import repository.ScheduleDao;
 import repository.TicketDao;
 
 import java.util.Scanner;
@@ -19,15 +18,18 @@ public class TicketMain {
         System.out.println("Which show would you like to see? \nPlease enter the ID from the schedule: ");
         int scheduleId = scan.nextInt();
 
-        //Siin peaks toimuma ühendus Schedule tabeliga
+        //ühendus Schedule tabeliga
+        ScheduleDao scheduleDao = new ScheduleDao();
+        scheduleDao.getScheduleEntry(scheduleId);
 
         System.out.println("How many tickets would you like to purchase? Enter number of tickets here: ");
         int numberOfTickets = scan.nextInt();
 
+        System.out.println("Checking availability...");
+
+        //siin peaks kontrollima, kas nii palju ticket'eid on veel olemas
+
         System.out.println("What type of tickets would you like to purchase?\n");
-        System.out.println("1 --- ADULT");
-        System.out.println("2 --- STUDENT/CHILD");
-        System.out.println("3 --- ELDERLY\n");
         System.out.println("Please enter your code here: ");
         int typeOfTicket = scan.nextInt();
         //ticket.setTicketType(typeOfTicket);
@@ -49,10 +51,6 @@ public class TicketMain {
                 typeOfTicket = scan.nextInt();
             }
         }
-
-        System.out.println("Checking availability...");
-
-        //siin peaks kontrollima, kas nii palju ticket'eid on veel olemas - "numberOfAvailableSeats();"?!
 
         //creating the tickets
         while (numberOfTickets > 0) {
@@ -81,6 +79,8 @@ public class TicketMain {
 
         //creating the client
         clientDao.createClient(client);*/
+
+
 
         //System.out.println("Thank you, " + client.getFirstName() + " for your purchase. We hope you enjoy the show.");
 

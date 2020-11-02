@@ -1,7 +1,7 @@
+/*
 package model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Table(schema = "theatre", name = "seats")
@@ -46,3 +46,4 @@ public class Seat {
 
 
 }
+*/

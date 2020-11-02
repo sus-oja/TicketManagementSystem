@@ -63,12 +63,6 @@ public class TicketDao {
         }
     }
 
-    public void bookTickets() {
-
-
-    }
-
-
     public List<Ticket> getTickets() {
         Session session = DBUtil.getSessionFactory().openSession();
         return session.createQuery("FROM tickets", Ticket.class).list();

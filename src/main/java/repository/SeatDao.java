@@ -1,14 +1,10 @@
+/*
 package repository;
 
-import model.Location;
 import model.Seat;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.DBUtil;
-
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
 
 public class SeatDao {
 
@@ -51,11 +47,6 @@ public class SeatDao {
         session.close();
     }
 
-   /* public List<Seat> getNumberOfAvailableSeats(Seat seat) {
-        Session session = DBUtil.getSessionFactory().openSession();
-        return session.createQuery("FROM seats", Seat.class).list();
-    }*/
-
     public void removeSeat(Seat seat) {
         Transaction transaction = null;
         Session session = DBUtil.getSessionFactory().openSession();
@@ -77,3 +68,4 @@ public class SeatDao {
         session.close();
     }
 }
+*/

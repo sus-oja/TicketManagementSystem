@@ -23,10 +23,6 @@ public class Ticket {
     @JoinColumn(name = "schedule_id")
     private Schedule schedule;
 
-    @OneToOne
-    @JoinColumn(name = "seat_id")
-    private Seat seat;
-
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at")
@@ -54,9 +50,20 @@ public class Ticket {
         this.ticketId = ticketId;
     }
 
-    public TicketType getTicketType() {
-        return ticketType;
-    }
+ /*   public TicketType getTicketType(int customersChoice) {
+
+        if(customersChoice == 1) {
+            return TicketType.ADULT;
+        } else if(customersChoice == 2) {
+            return TicketType.STUDENT_CHILD;
+        } else if(customersChoice == 3) {
+            return TicketType.ELDERLY;
+        } else {
+            System.out.println("Please enter appropriate code from 1-3: ");
+            return null;
+        }
+
+    }*/
 
     public void setTicketType(TicketType ticketType) {
         this.ticketType = ticketType;

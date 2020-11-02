@@ -49,6 +49,8 @@ public class LocationDao {
         session.close();
     }
 
+
+
     public Location getLocation(long locationId) {
 
         try {

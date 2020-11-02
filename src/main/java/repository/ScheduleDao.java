@@ -46,6 +46,19 @@ public class ScheduleDao {
         session.close();
     }
 
+    public Schedule getScheduleEntry(long scheduleId) {
+
+        try {
+            Session session = DBUtil.getSessionFactory().openSession();
+            Schedule schedule = session.find(Schedule.class, scheduleId);
+            return schedule;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.out.println("Unable to find the show you are looking for.");
+            return null;
+        }
+    }
+
     public void removeSchedule(Schedule schedule) {
         Transaction transaction = null;
         Session session = DBUtil.getSessionFactory().openSession();
