@@ -7,6 +7,7 @@ import repository.TicketDao;
 import java.util.Scanner;
 
 public class TicketMain {
+
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
@@ -18,7 +19,7 @@ public class TicketMain {
         System.out.println("Which show would you like to see? \nPlease enter the ID from the schedule: ");
         int scheduleId = scan.nextInt();
 
-        //ühendus Schedule tabeliga
+//ühendus Schedule tabeliga
         ScheduleDao scheduleDao = new ScheduleDao();
         scheduleDao.getScheduleEntry(scheduleId);
 
@@ -27,12 +28,14 @@ public class TicketMain {
 
         System.out.println("Checking availability...");
 
-        //siin peaks kontrollima, kas nii palju ticket'eid on veel olemas
+//siin peaks kontrollima, kas vajalikul hulgal ticket'eid on veel olemas
 
         System.out.println("What type of tickets would you like to purchase?\n");
+        System.out.println("1 --- ADULT");
+        System.out.println("2 --- STUDENT/CHILD");
+        System.out.println("3 --- ELDERLY\n");
         System.out.println("Please enter your code here: ");
         int typeOfTicket = scan.nextInt();
-        //ticket.setTicketType(typeOfTicket);
 
         double price = 0;
 
@@ -55,6 +58,7 @@ public class TicketMain {
         //creating the tickets
         while (numberOfTickets > 0) {
             ticketDao.createTicket(ticket);
+            //pileti kliendiga sidumine tuleb siia
             numberOfTickets--;
         }
 
@@ -81,14 +85,7 @@ public class TicketMain {
         clientDao.createClient(client);*/
 
 
-
         //System.out.println("Thank you, " + client.getFirstName() + " for your purchase. We hope you enjoy the show.");
-
-
-
-
-
-
 
 
     } //psvm
