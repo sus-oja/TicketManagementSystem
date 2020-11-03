@@ -27,34 +27,12 @@ public class ScheduleDao {
         session.close();
     }
 
-    public void updateSchedule(Schedule schedule) {
-        Session session = DBUtil.getSessionFactory().openSession();
-        Transaction transaction = null;
-
-        try {
-            transaction = session.beginTransaction();
-            session.update(schedule);
-            transaction.commit();
-            System.out.println("The schedule has been successfully updated.");
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-
-            if (transaction != null) {
-                transaction.rollback();
-            }
-        }
-        session.close();
-    }
     public Schedule getSchedule(Long scheduleId) {
-        Session session = DBUtil.getSessionFactory().openSession();
 
         try{
-            Schedule schedule = session.find(Schedule.class, scheduleId);
-            session.close();
-            return schedule;
+            Session session = DBUtil.getSessionFactory().openSession();
+            return session.find(Schedule.class, scheduleId);
         }catch (Exception ex){
-            session.close();
             System.out.println("Unable to find the schedule with id: " + scheduleId);
             ex.printStackTrace();
             return null;
@@ -70,8 +48,7 @@ public class ScheduleDao {
 
         try {
             Session session = DBUtil.getSessionFactory().openSession();
-            Schedule schedule = session.find(Schedule.class, scheduleId);
-            return schedule;
+            return session.find(Schedule.class, scheduleId);
         } catch (Exception ex) {
             ex.printStackTrace();
             System.out.println("Unable to find the show you are looking for.");
@@ -91,6 +68,26 @@ public class ScheduleDao {
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
+
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        }
+        session.close();
+    }
+
+    public void updateSchedule(Schedule schedule) {
+        Session session = DBUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
+
+        try {
+            transaction = session.beginTransaction();
+            session.update(schedule);
+            transaction.commit();
+            System.out.println("The schedule has been successfully updated.");
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
 
             if (transaction != null) {
                 transaction.rollback();

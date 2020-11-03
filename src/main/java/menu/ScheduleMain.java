@@ -3,18 +3,16 @@ package menu;
 import model.*;
 import repository.*;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class ScheduleMain {
     public static void main (String[] args){
-        // createScheduleEntry();
+        //createScheduleEntry();
     }
-    public static void createSchedule(LocalDateTime starTime, int locationId, int showId){
+    public static void createScheduleEntry(LocalDateTime starTime, int locationId, int showId){
 
-
-        //Schedule schedule = new Schedule(new Date(2020,10,1));
+        LocalDateTime showTime = LocalDateTime.of(2020,12,5,19,00);
         Schedule schedule = new Schedule(starTime);
 
         LocationDao locationDao = new LocationDao();

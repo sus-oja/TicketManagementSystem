@@ -25,9 +25,10 @@ public class Client {
     @Column(name = "email")
     private String email;
 
-    @OneToOne
+    // siin on ticket seotud clientiga aga vajalik min vastupidi
+   /* @OneToOne
     @JoinColumn(name = "ticket_id")
-    private Ticket ticket;
+    private Ticket ticket;*/
 
 
     @CreationTimestamp

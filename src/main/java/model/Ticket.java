@@ -24,7 +24,12 @@ public class Ticket {
     @JoinColumn(name = "schedule_id")
     private Schedule schedule;
 
-    @OneToOne (mappedBy = "ticket")
+    // siin on ticket seotud clientiga aga vajalik min vastupidi
+   /* @OneToOne (mappedBy = "ticket")
+    private Client client;*/
+
+    @OneToOne
+    @JoinColumn(name = "client_id")
     private Client client;
 
     @CreationTimestamp
@@ -52,23 +57,6 @@ public class Ticket {
         this.ticketId = ticketId;
     }
 
- /*   public TicketType getTicketType(int customersChoice) {
-
-        if(customersChoice == 1) {
-            return TicketType.ADULT;
-        } else if(customersChoice == 2) {
-            return TicketType.STUDENT_CHILD;
-        } else if(customersChoice == 3) {
-            return TicketType.ELDERLY;
-        } else {
-            System.out.println("Please enter appropriate code from 1-3: ");
-            return null;
-        }
-
-    }*/
-
-
-
     public Double getTicketPrice() {
         return ticketPrice;
     }
@@ -91,6 +79,20 @@ public class Ticket {
 
     public void setLastUpdated(Date lastUpdated) {
         this.lastUpdated = lastUpdated;
+    }
+    public Schedule getSchedule() {
+        return schedule;
+    }
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }
 

@@ -1,12 +1,21 @@
 package menu;
 
 import model.Client;
+import model.Schedule;
 import repository.ClientDao;
+import repository.ScheduleDao;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class ClientMain {
 
     public static void main(String[] args) {
+
+    }
+
+    //public static void saveClient(String[] args) {
+    public static void saveClient() {
         Client newClient = new Client();
 
         Scanner scanner = new Scanner(System.in);
@@ -26,5 +35,12 @@ public class ClientMain {
 
     }
 
+    public static void printClient() {
+        ClientDao clientDao = new ClientDao();
+        List<Client> clients = clientDao.getClients();
+//        ScheduleDao scheduleDao = new ScheduleDao();
+//        List<Schedule> schedules = scheduleDao.getSchedules();
+
+    }
     
 }

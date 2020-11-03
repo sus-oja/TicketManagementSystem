@@ -1,8 +1,10 @@
 package model;
 
-
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(schema = "theatre", name = "schedule")
@@ -15,8 +17,8 @@ public class Schedule {
     private Long scheduleId;
 
     @Column(name = "start_time")
-    private Date startTime;
-    //______________________
+    private LocalDateTime startTime;
+
     @OneToOne(mappedBy = "schedule")
     private Ticket ticket;
 
@@ -27,15 +29,11 @@ public class Schedule {
     @OneToOne
     @JoinColumn(name = "show_id")
     private Shows show;
-//võtan välja
-    @OneToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
 
-    public Schedule() {
+        public Schedule() {
     }
 
-    public Schedule(Date startTime) {
+    public Schedule(LocalDateTime startTime) {
         this.startTime = startTime;
     }
 
@@ -47,11 +45,12 @@ public class Schedule {
         this.scheduleId = scheduleId;
     }
 
-    public Date getStartTime() {
-        return startTime;
+    public String getStartTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        return startTime.format(formatter);
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(LocalDateTime startTime) {
         this.startTime = startTime;
     }
 
@@ -77,13 +76,5 @@ public class Schedule {
 
     public void setShow(Shows show) {
         this.show = show;
-    }
-//võtan välja
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
     }
 }
