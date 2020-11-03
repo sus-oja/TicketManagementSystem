@@ -1,7 +1,6 @@
 package model;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.ManyToAny;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -26,7 +25,7 @@ public class Client {
     @Column(name = "email")
     private String email;
 
-    @OneToOne                       //võib mäkra mängida kui salvestab ühe pileti ühele inimesele... manyto many
+    @OneToOne
     @JoinColumn(name = "ticket_id")
     private Ticket ticket;
 

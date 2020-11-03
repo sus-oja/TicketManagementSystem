@@ -19,10 +19,10 @@ public class ClientMain {
         System.out.println("Give email: ");
         newClient.setEmail(scanner.nextLine());
 
-        //System.out.println(newClient.getFirstName());
-
         ClientDao clientDao = new ClientDao();
         clientDao.createClient(newClient);
+
+       System.out.println("The new client is: " + newClient.getFirstName() + " " + newClient.getLastName() + ", " + newClient.getEmail());
 
     }
 }
