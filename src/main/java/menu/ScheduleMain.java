@@ -71,7 +71,7 @@ public class ScheduleMain {
             }
         }
 
-        Schedule sch = schedules.get(indexOfShow); //doesn't work because index in the list might not be the same as scheduleID
+        Schedule sch = schedules.get(indexOfShow);
         Location loc = sch.getLocation();
         int max = loc.getMaxSeats();
 
