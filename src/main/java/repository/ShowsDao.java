@@ -12,17 +12,10 @@ public class ShowsDao {
         Transaction transaction = null;
 
         try {
-<<<<<<< Updated upstream
             transaction = session.beginTransaction();
             session.save(shows);
             transaction.commit();
 
-=======
-
-            transaction = session.beginTransaction();
-            session.save(shows);
-            transaction.commit();
->>>>>>> Stashed changes
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
 
@@ -32,7 +25,7 @@ public class ShowsDao {
         }
         session.close();
     }
-<<<<<<< Updated upstream
+
 
     public Shows getShow(int showId) {
         Session session = DBUtil.getSessionFactory().openSession();
@@ -50,6 +43,4 @@ public class ShowsDao {
         }
     }
 
-=======
->>>>>>> Stashed changes
 }
