@@ -48,6 +48,10 @@ public class RunningShow {
 
         ShowsDao showsDao = new ShowsDao();
         showsDao.createShows(shows1);
+        showsDao.createShows(shows2);
+        showsDao.createShows(shows3);
+        showsDao.createShows(shows4);
+        showsDao.createShows(shows5);
 
 
 // siit peaks toimuma ostetava pileti ja schedule ühendamine aga millegipärast ei toimi. Tõstsin eraldi klassi ScheduleMain.
