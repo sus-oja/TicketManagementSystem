@@ -48,18 +48,16 @@ public class ScheduleDao {
     }
 
     public Schedule getSchedule(Long scheduleId) {
-        Session session = DBUtil.getSessionFactory().openSession();
 
         try{
-            Schedule schedule = session.find(Schedule.class, scheduleId);
-            session.close();
-            return schedule;
+            Session session = DBUtil.getSessionFactory().openSession();
+            return session.find(Schedule.class, scheduleId);
         }catch (Exception ex){
-            session.close();
             System.out.println("Unable to find the schedule with id: " + scheduleId);
             ex.printStackTrace();
             return null;
         }
+
     }
 
     public List<Schedule> getSchedules(){
@@ -71,8 +69,7 @@ public class ScheduleDao {
 
         try {
             Session session = DBUtil.getSessionFactory().openSession();
-            Schedule schedule = session.find(Schedule.class, scheduleId);
-            return schedule;
+            return session.find(Schedule.class, scheduleId);
         } catch (Exception ex) {
             ex.printStackTrace();
             System.out.println("Unable to find the show you are looking for.");

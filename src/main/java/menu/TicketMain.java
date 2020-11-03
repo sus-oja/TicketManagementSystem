@@ -61,8 +61,13 @@ public class TicketMain {
 //creating the tickets
         while (numberOfTickets > 0) {
             ticketDao.createTicket(ticket);
-            //ticket.setSchedule(scheduleId);
-            //pileti kliendiga sidumine tuleb siia
+
+//adding scheduleId to the ticket
+            ScheduleDao scheduleDao = new ScheduleDao();
+            Schedule schedule = scheduleDao.getSchedule(scheduleId);
+            ticket.setSchedule(schedule);
+
+//pileti kliendiga sidumine tuleb siia
             numberOfTickets--;
         }
 

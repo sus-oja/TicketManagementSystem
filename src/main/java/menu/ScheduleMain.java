@@ -83,20 +83,5 @@ public class ScheduleMain {
         //lisa siia ELSE, mis võrdleb ostetavat kogust alles jäänud istmetega
     }
 
-    public static void connectTicketWithShow(long scheduleId) {
-        ScheduleDao scheduleDao = new ScheduleDao();
-        List<Schedule> schedules = scheduleDao.getSchedules();
-
-        int indexOfShow = 0;
-
-        for (Schedule s : schedules) {
-            if (schedules.contains(scheduleId)) {
-                indexOfShow = (int) scheduleId;
-                break;
-            }
-        }
-
-
-    }
 
 } //ScheduleMain class
