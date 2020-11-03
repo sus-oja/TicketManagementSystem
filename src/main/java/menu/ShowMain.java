@@ -12,9 +12,9 @@ import util.DBUtil;
 import java.sql.Date;
 import java.util.List;
 
-public class RunningShow {
+public class ShowMain {
 
-    public static void main(String[] args) {
+    public static void enterShows() {
         Shows shows1 = new Shows("Emadepäev", "“Emadepäev” heitlik, paiguti naerma " +
                 "ja paiguti hulluks ajav lavastus täis kraaklemist, rõõmu, nuttu, " +
                 "armastust, ürgvarajasi hommikuid ja hirmhiliseid õhtuid, kõikjal " +
@@ -34,7 +34,7 @@ public class RunningShow {
                 "Ta on noor, ilus ja andekas! Küsimusele: „Olla või mitte olla?“ " +
                 "vastab Peer Gynt: „Olla ise!“", "2 tundi", "Drama", "Karl Laumets");
 
-        Shows shows4 = new Shows("Once", "ohn Carney mängufilmil põhinev muusikal “Once” " +
+        Shows shows4 = new Shows("Once", "John Carney mängufilmil põhinev muusikal “Once” " +
                 "(“Ükskord”) on isemoodi lugu üksindusest, kirest ja lootustest. Samuti muusika rollist meie elus.",
                 "2 tundi ja 20 minutit", "Muusikal", "Taago Tubin");
 
@@ -51,28 +51,5 @@ public class RunningShow {
         showsDao.createShows(shows4);
         showsDao.createShows(shows5);
 
-
-// siit peaks toimuma ostetava pileti ja schedule ühendamine aga millegipärast ei toimi. Tõstsin eraldi klassi ScheduleMain.
-    /*    createSchedule();
-    }
-
-    public static void createSchedule(){
-
-        Schedule schedule = new Schedule(new Date(2020,10,1));
-
-        LocationDao locationDao = new LocationDao();
-        Location location = locationDao.getLocation(2); //andmebaasist IDga küsitud
-        schedule.setLocation(location);
-
-        ShowsDao showsDao = new ShowsDao();
-        Shows show = showsDao.getShow(2);
-        schedule.setShow(show);
-
-        ScheduleDao scheduleDao = new ScheduleDao();
-        scheduleDao.createSchedule(schedule);
-
-        System.out.println(schedule.getStartTime());
-
-    }*/
     }
 }

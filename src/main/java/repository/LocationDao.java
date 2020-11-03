@@ -1,7 +1,6 @@
 package repository;
 
 import model.Location;
-import model.Ticket;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.DBUtil;
@@ -13,7 +12,6 @@ public class LocationDao {
     public void createLocation(Location location) {
         Session session = DBUtil.getSessionFactory().openSession();
         Transaction transaction = null;
-
 
         try {
             transaction = session.beginTransaction();
@@ -48,8 +46,6 @@ public class LocationDao {
         }
         session.close();
     }
-
-
 
     public Location getLocation(long locationId) {
 

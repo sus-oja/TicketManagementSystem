@@ -14,16 +14,16 @@ import java.util.List;
 
 public class ScheduleMain {
     public static void main(String[] args) {
-       // createScheduleEntry();
+        LocalDateTime showTime = LocalDateTime.of(2020, 11, 30, 19, 00);
+        createScheduleEntry(showTime, 2, 4);
     }
 
-    public static void createScheduleEntry(LocalDateTime startTime, int locationId, int showId){
+    public static void createScheduleEntry(LocalDateTime startTime, int locationId, int showId) {
 
-        //LocalDateTime showTime = LocalDateTime.of(2020, 12, 5, 19, 00);
         Schedule schedule = new Schedule(startTime);
 
         LocationDao locationDao = new LocationDao();
-        Location location = locationDao.getLocation(locationId); //andmebaasist IDga küsitud
+        Location location = locationDao.getLocation(locationId);
         schedule.setLocation(location);
 
         ShowsDao showsDao = new ShowsDao();
@@ -35,8 +35,7 @@ public class ScheduleMain {
 
         System.out.println(schedule.getStartTime());
 
-    } //createSchedule
-
+    }
 
     public static void printSchedule() {
         ScheduleDao scheduleDao = new ScheduleDao();
@@ -51,9 +50,7 @@ public class ScheduleMain {
         }
     }
 
-//calculation of available seats per show
-
-    public static void checkAvailability(long scheduleId) {
+    public static boolean checkAvailability(long scheduleId, int numberOfTickets) {
         ScheduleDao scheduleDao = new ScheduleDao();
         List<Schedule> schedules = scheduleDao.getSchedules();
 
@@ -71,16 +68,28 @@ public class ScheduleMain {
         int max = loc.getMaxSeats();
 
         TicketDao ticketDao = new TicketDao();
-        List<Ticket> tickets = ticketDao.getTickets();
+        List<Ticket> tickets = ticketDao.getTickets(scheduleId);
 
-        if (tickets.size() == max ) {
+        if (tickets.size() >= max) {
             System.out.println("Sorry, we are sold out!");
-        } /*else if (numberOfTickets > (max - tickets.size())) {
-            System.out.println("Sorry, we don't have that many tickets available. You can purchase maximum of " +
-                    (max- tickets.size()) + " ticket(s).");
-        }*/
+            return false;
 
+        } else if (numberOfTickets > (max - tickets.size())) {
+            System.out.println("Sorry, we don't have that many tickets available. You can purchase maximum of " +
+                    (max - tickets.size()) + " ticket(s).");
+            return false;
+
+        } else if (numberOfTickets <= (max - tickets.size())){
+            System.out.println("What type of tickets would you like to purchase?\n");
+            System.out.println("1 --- ADULT");
+            System.out.println("2 --- STUDENT/CHILD");
+            System.out.println("3 --- ELDERLY\n");
+            System.out.println("Please enter your code here: ");
+
+            return true;
+        }
+        return true;
     }
 
 
-} //ScheduleMain class
+}

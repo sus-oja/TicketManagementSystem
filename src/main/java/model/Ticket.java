@@ -23,7 +23,8 @@ public class Ticket {
     @JoinColumn(name = "schedule_id")
     private Schedule schedule;
 
-    @OneToOne (mappedBy = "client_id")
+    @OneToOne
+    @JoinColumn (name = "client_id")
     private Client client;
 
     @CreationTimestamp
@@ -78,6 +79,7 @@ public class Ticket {
     public Schedule getSchedule() {
         return schedule;
     }
+
     public void setSchedule(Schedule schedule) {
         this.schedule = schedule;
     }
