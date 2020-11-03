@@ -14,7 +14,6 @@ import java.sql.Date;
 public class ScheduleMain {
     public static void createSchedule(int locationId, int showId, int clientId){
 
-// kuidagi teistmoodi tuleb kuupäeva sisestus teha.
 
         Schedule schedule = new Schedule(new Date(2020,10,1));
 
@@ -28,7 +27,7 @@ public class ScheduleMain {
 
         ClientDao clientDao = new ClientDao();
         Client client = clientDao.getClient(clientId);
-        schedule.setClient(clientId);
+        schedule.setClient(client);
 
         ScheduleDao scheduleDao = new ScheduleDao();
         scheduleDao.createSchedule(schedule);
@@ -38,3 +37,5 @@ public class ScheduleMain {
 
     } //psvm
 } //ScheduleMain class
+
+
