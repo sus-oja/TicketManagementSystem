@@ -52,8 +52,8 @@ public class ClientDao {
         Session session = DBUtil.getSessionFactory().openSession();
 
         try {
+            //return session.find(Client.class, clientId);
             Client client = session.find(Client.class, clientId);
-            //session.close();
             return client;
         } catch (Exception ex) {
             System.out.println("Unable to find the client you are looking for.");
@@ -62,7 +62,7 @@ public class ClientDao {
         }
     }
 
-    public List<Client> getClients() {
+   /* public List<Client> getClients() {
         Session session = DBUtil.getSessionFactory().openSession();
         return session.createQuery("from Client", Client.class).list();
     }
@@ -72,7 +72,7 @@ public class ClientDao {
         Query query = session.createQuery("FROM Client WHERE ticket_id = :ticId", Client.class); //or ticket
         query.setParameter("ticId", "'"+ticketId+"'");
         return query.list();
-    }
+    }*/
 
     public void deleteClient(Client client) {
         Transaction transaction = null;

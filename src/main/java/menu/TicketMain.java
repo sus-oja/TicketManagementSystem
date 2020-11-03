@@ -70,7 +70,6 @@ public class TicketMain {
 
 //pileti kliendiga sidumine tuleb siia
 
-            //ScheduleMain.saveClient();
             ClientMain.saveClient();
             //long clientId = scan.nextInt();
             ClientDao clientDao = new ClientDao();

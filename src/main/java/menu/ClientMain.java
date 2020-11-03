@@ -11,7 +11,6 @@ import java.util.Scanner;
 public class ClientMain {
 
     public static void main(String[] args) {
-
     }
 
     //public static void saveClient(String[] args) {
@@ -31,16 +30,9 @@ public class ClientMain {
         ClientDao clientDao = new ClientDao();
         clientDao.createClient(newClient);
 
+
+
        System.out.println("The new client is: " + newClient.getFirstName() + " " + newClient.getLastName() + ", " + newClient.getEmail());
 
     }
-
-    public static void printClient() {
-        ClientDao clientDao = new ClientDao();
-        List<Client> clients = clientDao.getClients();
-//        ScheduleDao scheduleDao = new ScheduleDao();
-//        List<Schedule> schedules = scheduleDao.getSchedules();
-
-    }
-    
 }
