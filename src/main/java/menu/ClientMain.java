@@ -25,4 +25,6 @@ public class ClientMain {
        System.out.println("The new client is: " + newClient.getFirstName() + " " + newClient.getLastName() + ", " + newClient.getEmail());
 
     }
+
+    
 }

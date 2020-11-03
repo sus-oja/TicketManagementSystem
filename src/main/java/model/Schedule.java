@@ -28,6 +28,10 @@ public class Schedule {
     @JoinColumn(name = "show_id")
     private Shows show;
 
+    @OneToOne
+    @JoinColumn(name = "client_id")
+    private int client;
+
     public Schedule() {
     }
 
@@ -73,5 +77,13 @@ public class Schedule {
 
     public void setShow(Shows show) {
         this.show = show;
+    }
+
+    public int getClient() {
+        return client;
+    }
+
+    public void setClient(int client) {
+        this.client = client;
     }
 }

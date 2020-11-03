@@ -1,6 +1,7 @@
 package repository;
 
 import model.Client;
+import model.Location;
 import org.hibernate.query.Query;
 import util.DBUtil;
 import org.hibernate.Session;
@@ -47,14 +48,17 @@ public class ClientDao {
         session.close();
     }
 
-    public void getClient(long clientId) {
+    public Client getClient(long clientId) {
+        Session session = DBUtil.getSessionFactory().openSession();
 
         try {
-            Session session = DBUtil.getSessionFactory().openSession();
             Client client = session.find(Client.class, clientId);
+            //session.close();
+            return client;
         } catch (Exception ex) {
-            ex.printStackTrace();
             System.out.println("Unable to find the client you are looking for.");
+            ex.printStackTrace();
+            return null;
         }
     }
 
