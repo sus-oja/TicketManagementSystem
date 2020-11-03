@@ -4,7 +4,6 @@ import model.Shows;
 import model.Client;
 import model.Location;
 import model.Schedule;
-import model.Seat;
 import model.Ticket;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -56,7 +55,6 @@ public class DBUtil {
             configuration.addAnnotatedClass(Client.class);
             configuration.addAnnotatedClass(Location.class);
             configuration.addAnnotatedClass(Schedule.class);
-            configuration.addAnnotatedClass(Seat.class);
             configuration.addAnnotatedClass(Ticket.class);
 
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
