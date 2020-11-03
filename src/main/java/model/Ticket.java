@@ -23,8 +23,8 @@ public class Ticket {
     @JoinColumn(name = "schedule_id")
     private Schedule schedule;
 
-    @OneToOne(mappedBy = "ticket")
-    private Client client;
+    //@OneToOne(mappedBy = "ticket")
+    //private Client client;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

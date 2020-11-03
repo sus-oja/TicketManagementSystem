@@ -1,15 +1,15 @@
 package menu;
 
 import model.Shows;
-import org.hibernate.Session;
 import repository.ShowsDao;
-import util.DBUtil;
 
-import java.util.List;
+import java.util.Scanner;
 
 public class RunningShow {
 
     public static void main(String[] args) {
+
+
         Shows shows1 = new Shows("Emadepäev", "“Emadepäev” heitlik, paiguti naerma " +
                 "ja paiguti hulluks ajav lavastus täis kraaklemist, rõõmu, nuttu, " +
                 "armastust, ürgvarajasi hommikuid ja hirmhiliseid õhtuid, kõikjal " +
@@ -39,11 +39,25 @@ public class RunningShow {
                 "ise, kui satuksime samasugustesse oludesse?", "2 tundi ja 20 minutit", "Põnevusdraama",
                 "Taago Tubin");
 
+
+        Shows newShows = new Shows();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Select your show: ");
+        newShows.setTitle(scan.nextLine());
+
+
         ShowsDao showsDao = new ShowsDao();
         showsDao.createShows(shows1);
+        showsDao.createShows(shows2);
+        showsDao.createShows(shows3);
+        showsDao.createShows(shows4);
+        showsDao.createShows(shows5);
 
-
-        System.out.println(shows1.getTitle());
+        /*System.out.println(shows1.getTitle());
+        System.out.println(shows2.getTitle());
+        System.out.println(shows3.getTitle());
+        System.out.println(shows4.getTitle());
+        System.out.println(shows5.getTitle());*/
 
     }
 }
