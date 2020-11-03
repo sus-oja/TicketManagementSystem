@@ -8,8 +8,9 @@ import java.util.List;
 
 public class ScheduleMain {
    public static void createSchedule (){
-        //createScheduleEntry();
-    }
+
+        }
+
     public static void createScheduleEntry(LocalDateTime starTime, int locationId, int showId){
 
         LocalDateTime showTime = LocalDateTime.of(2020,12,5,19,00);
