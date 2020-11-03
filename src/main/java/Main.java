@@ -11,7 +11,7 @@ public class Main {
 
         LocationMain.saveLocation();
 
-        TicketMain.createTicket();
+        //TicketMain.createTicket(); ----> jookseb, kui võtta meetodist ära sisu( String[] args) aga siis küsib kõigepealt Client parameetreid ja protsess läheb edasi.
 
         //ScheduleMain.createSchedule();
 

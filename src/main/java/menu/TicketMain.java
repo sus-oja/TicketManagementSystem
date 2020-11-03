@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class TicketMain {
 
-    public static void createTicket() {
+    public static void createTicket(String[] args) {
 
         Scanner scan = new Scanner(System.in);
 
