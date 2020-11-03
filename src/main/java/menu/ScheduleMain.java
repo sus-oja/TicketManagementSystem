@@ -19,20 +19,20 @@ import java.util.stream.Collectors;
 
 public class ScheduleMain {
     public static void main(String[] args) {
-        createScheduleEntry();
+       // createScheduleEntry();
     }
 
-    public static void createScheduleEntry(){
+    public static void createScheduleEntry(LocalDateTime startTime, int locationId, int showId){
 
-        LocalDateTime showTime = LocalDateTime.of(2020, 12, 5, 19, 00);
-        Schedule schedule = new Schedule(showTime);
+        //LocalDateTime showTime = LocalDateTime.of(2020, 12, 5, 19, 00);
+        Schedule schedule = new Schedule(startTime);
 
         LocationDao locationDao = new LocationDao();
-        Location location = locationDao.getLocation(4); //andmebaasist IDga küsitud
+        Location location = locationDao.getLocation(locationId); //andmebaasist IDga küsitud
         schedule.setLocation(location);
 
         ShowsDao showsDao = new ShowsDao();
-        Shows show = showsDao.getShow(9);
+        Shows show = showsDao.getShow(showId);
         schedule.setShow(show);
 
         ScheduleDao scheduleDao = new ScheduleDao();
@@ -81,6 +81,22 @@ public class ScheduleMain {
         if (soldTickets == max )
             System.out.println("Sorry, we are sold out!");
         //lisa siia ELSE, mis võrdleb ostetavat kogust alles jäänud istmetega
+    }
+
+    public static void connectTicketWithShow(long scheduleId) {
+        ScheduleDao scheduleDao = new ScheduleDao();
+        List<Schedule> schedules = scheduleDao.getSchedules();
+
+        int indexOfShow = 0;
+
+        for (Schedule s : schedules) {
+            if (schedules.contains(scheduleId)) {
+                indexOfShow = (int) scheduleId;
+                break;
+            }
+        }
+
+
     }
 
 } //ScheduleMain class

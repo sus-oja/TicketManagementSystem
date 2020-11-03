@@ -92,6 +92,13 @@ public class Ticket {
     public void setLastUpdated(Date lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
+
+    public Schedule getSchedule() {
+        return schedule;
+    }
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
+    }
 }
 
 

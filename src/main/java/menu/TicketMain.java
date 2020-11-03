@@ -28,7 +28,7 @@ public class TicketMain {
 
         System.out.println("Checking availability...");
         ScheduleMain.checkAvailability(scheduleId);
-        //ticket.setScheduleId(scheduleId);
+
 
         System.out.println("How many tickets would you like to purchase? Enter number of tickets here: ");
         int numberOfTickets = scan.nextInt();
@@ -61,7 +61,7 @@ public class TicketMain {
 //creating the tickets
         while (numberOfTickets > 0) {
             ticketDao.createTicket(ticket);
-
+            //ticket.setSchedule(scheduleId);
             //pileti kliendiga sidumine tuleb siia
             numberOfTickets--;
         }
