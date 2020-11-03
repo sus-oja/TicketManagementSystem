@@ -1,6 +1,5 @@
 package repository;
 
-import model.Client;
 import model.Shows;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

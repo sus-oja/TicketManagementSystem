@@ -1,14 +1,12 @@
 package repository;
 
-import model.Client;
-import model.Location;
 import model.Ticket;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import util.DBUtil;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class TicketDao {
 
@@ -65,7 +63,14 @@ public class TicketDao {
 
     public List<Ticket> getTickets() {
         Session session = DBUtil.getSessionFactory().openSession();
-        return session.createQuery("FROM tickets", Ticket.class).list();
+        return session.createQuery("from Ticket", Ticket.class).list();
+    }
+//In JPQL (or HQL), you must use the Java class name and property names of the mapped @Entity instead of the actual table name and column names. So the JPQL (or HQL) should be:
+    public List<Ticket> getTickets(int scheduleId) {
+        Session session = DBUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("FROM Ticket WHERE schedule_id = :schId", Ticket.class);
+        query.setParameter("schId", "'"+scheduleId+"'");
+        return query.list();
     }
 
     public void deleteTicket(Ticket ticket) {

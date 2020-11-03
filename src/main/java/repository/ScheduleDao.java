@@ -63,7 +63,7 @@ public class ScheduleDao {
 
     public List<Schedule> getSchedules(){
         Session session = DBUtil.getSessionFactory().openSession();
-        return session.createQuery("all schedules", Schedule.class).list();
+        return session.createQuery("from Schedule", Schedule.class).list();
     }
 
     public Schedule getScheduleEntry(long scheduleId) {

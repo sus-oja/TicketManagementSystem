@@ -46,17 +46,14 @@ public class RunningShow {
 
         ShowsDao showsDao = new ShowsDao();
         showsDao.createShows(shows1);
-        showsDao.createShows(shows2);
-        showsDao.createShows(shows3);
 
 
-        System.out.println(shows1.getTitle());
-
-        createSchedule();
+// siit peaks toimuma ostetava pileti ja schedule ühendamine aga millegipärast ei toimi. Tõstsin eraldi klassi ScheduleMain.
+    /*    createSchedule();
     }
 
     public static void createSchedule(){
-        //Schedule schedule = new Schedule(new Date(2020,12,1), 1 );
+
         Schedule schedule = new Schedule(new Date(2020,10,1));
 
         LocationDao locationDao = new LocationDao();
@@ -72,5 +69,6 @@ public class RunningShow {
 
         System.out.println(schedule.getStartTime());
 
+    }*/
     }
 }

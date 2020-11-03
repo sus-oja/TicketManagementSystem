@@ -1,7 +1,7 @@
 package menu;
 
+import model.Location;
 import model.Schedule;
-import model.Shows;
 import model.Ticket;
 import repository.ScheduleDao;
 import repository.TicketDao;
@@ -19,9 +19,12 @@ public class TicketMain {
         TicketDao ticketDao = new TicketDao();
 
         System.out.println("WELCOME TO UGALA!");
-        System.out.println("Which show would you like to see? \nPlease enter ... from the schedule: ");
+        System.out.println("Which show would you like to see? ");
 
-// to see all shows in schedules
+// to show all Shows in schedules
+// meetodid tuleb kuidagi lahku lüüa
+
+        //Schedule schedule = new Schedule();
         ScheduleDao scheduleDao = new ScheduleDao();
         List<Schedule> schedules = scheduleDao.getSchedules();
 
@@ -30,35 +33,27 @@ public class TicketMain {
            System.out.println(s.getScheduleId()+ " " + s.getShow().getTitle() + " " + s.getStartTime() + " " + s.getLocation().getLocationName());
         }
 
+// for choosing show for buying
+        System.out.println("Please enter schedule ID number from the : ");
+        int scheduleId = scan.nextInt();
 
-        //scheduleDao.getScheduleEntry(scheduleId);
+        System.out.println("Checking availability...");
 
+// calculation of available seats per show
 
-       // int scheduleId = scan.nextInt();
+        Schedule sch = schedules.get(scheduleId);
+        Location loc = sch.getLocation();
+        int max = loc.getMaxSeats();
 
-//ühendus Schedule tabeliga
-//get all schedules by show ID
-//public void mappingSheduleToTicet() {
+       List<Ticket> tickets = ticketDao.getTickets(scheduleId);
+       int soldTickets = tickets.size();
+       if (soldTickets == max )
+           System.out.println("Sorry, sold out! ");
 
-        /*Schedule schedule = new Schedule();
-        ScheduleDao scheduleDao = new ScheduleDao();*/
-
-
-        //scheduleDao.getScheduleEntry(scheduleId);
-
+    //ticket.setTicketId();
 
     System.out.println("How many tickets would you like to purchase? Enter number of tickets here: ");
     int numberOfTickets = scan.nextInt();
-
-    System.out.println("Checking availability...");
-
-
-
-
-//siin peaks kontrollima, kas vajalikul hulgal ticket'eid on veel olemas
-
-
-
 
         System.out.println("What type of tickets would you like to purchase?\n");
         System.out.println("1 --- ADULT");
@@ -85,10 +80,12 @@ public class TicketMain {
             }
         }
 
-        //creating the tickets
+//creating the tickets
         while (numberOfTickets > 0) {
             ticketDao.createTicket(ticket);
+
             //pileti kliendiga sidumine tuleb siia
+ // midagi on ScheduleMain klassis AT
             numberOfTickets--;
         }
 

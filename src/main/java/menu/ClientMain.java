@@ -4,7 +4,7 @@ import model.Client;
 import repository.ClientDao;
 import java.util.Scanner;
 
-public class ClientRun {
+public class ClientMain {
 
     public static void main(String[] args) {
         Client newClient = new Client();
