@@ -10,7 +10,7 @@ public class ClientMain {
     }
 
     //public static void saveClient(String[] args) {
-    public static void saveClient() {
+    public static Client saveClient() {
         Client newClient = new Client();
 
         Scanner scanner = new Scanner(System.in);
@@ -26,9 +26,9 @@ public class ClientMain {
         ClientDao clientDao = new ClientDao();
         clientDao.createClient(newClient);
 
-
-
        System.out.println("The new client is: " + newClient.getFirstName() + " " + newClient.getLastName() + ", " + newClient.getEmail());
+
+       return newClient;
 
     }
 }

@@ -24,10 +24,6 @@ public class Ticket {
     @JoinColumn(name = "schedule_id")
     private Schedule schedule;
 
-    // siin on ticket seotud clientiga aga vajalik min vastupidi
-   /* @OneToOne (mappedBy = "ticket")
-    private Client client;*/
-
     @OneToOne
     @JoinColumn(name = "client_id")
     private Client client;

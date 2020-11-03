@@ -1,14 +1,10 @@
 package menu;
 
 import model.Client;
-import model.Location;
 import model.Schedule;
 import model.Ticket;
-import repository.ClientDao;
 import repository.ScheduleDao;
 import repository.TicketDao;
-
-import java.util.List;
 import java.util.Scanner;
 
 public class TicketMain {
@@ -61,21 +57,19 @@ public class TicketMain {
 
 //creating the tickets
         while (numberOfTickets > 0) {
-            ticketDao.createTicket(ticket);
+
+            Ticket ticket1 = new Ticket();
+            ticket1.setTicketPrice(ticket.getTicketPrice());
+
+            Client client = ClientMain.saveClient();
+            ticket1.setClient(client);
 
 //adding scheduleId to the ticket
             ScheduleDao scheduleDao = new ScheduleDao();
             Schedule schedule = scheduleDao.getSchedule(scheduleId);
-            ticket.setSchedule(schedule);
+            ticket1.setSchedule(schedule);
 
-//pileti kliendiga sidumine tuleb siia
-
-            ClientMain.saveClient();
-            //long clientId = scan.nextInt();
-            ClientDao clientDao = new ClientDao();
-           /* long clientId;
-            Client client = clientDao.getClient(clientId);
-            ticket.setClient(client);*/
+            ticketDao.createTicket(ticket1);
 
             numberOfTickets--;
         }
