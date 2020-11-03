@@ -11,7 +11,11 @@ import repository.TicketDao;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ScheduleMain {
     public static void main(String[] args) {
@@ -54,11 +58,20 @@ public class ScheduleMain {
 
 //calculation of available seats per show
 
-    public static void checkAvailability(int scheduleId) {
+    public static void checkAvailability(long scheduleId) {
         ScheduleDao scheduleDao = new ScheduleDao();
         List<Schedule> schedules = scheduleDao.getSchedules();
 
-        Schedule sch = schedules.get(scheduleId);
+        int indexOfShow = 0;
+
+        for (Schedule s : schedules) {
+            if (schedules.contains(scheduleId)) {
+                indexOfShow = (int) scheduleId;
+                break;
+            }
+        }
+
+        Schedule sch = schedules.get(indexOfShow); //doesn't work because index in the list might not be the same as scheduleID
         Location loc = sch.getLocation();
         int max = loc.getMaxSeats();
 
@@ -67,6 +80,7 @@ public class ScheduleMain {
         int soldTickets = tickets.size();
         if (soldTickets == max )
             System.out.println("Sorry, we are sold out!");
+        //lisa siia ELSE, mis võrdleb ostetavat kogust alles jäänud istmetega
     }
 
 } //ScheduleMain class

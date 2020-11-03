@@ -24,7 +24,7 @@ public class TicketMain {
         ScheduleMain.printSchedule();
 
         System.out.println("Please enter shows ID number from the schedule: ");
-        int scheduleId = scan.nextInt();
+        long scheduleId = scan.nextInt();
 
         System.out.println("Checking availability...");
         ScheduleMain.checkAvailability(scheduleId);
@@ -63,7 +63,6 @@ public class TicketMain {
             ticketDao.createTicket(ticket);
 
             //pileti kliendiga sidumine tuleb siia
- // midagi on ScheduleMain klassis AT
             numberOfTickets--;
         }
 

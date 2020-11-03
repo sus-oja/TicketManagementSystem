@@ -66,7 +66,7 @@ public class TicketDao {
         return session.createQuery("from Ticket", Ticket.class).list();
     }
 //In JPQL (or HQL), you must use the Java class name and property names of the mapped @Entity instead of the actual table name and column names. So the JPQL (or HQL) should be:
-    public List<Ticket> getTickets(int scheduleId) {
+    public List<Ticket> getTickets(long scheduleId) {
         Session session = DBUtil.getSessionFactory().openSession();
         Query query = session.createQuery("FROM Ticket WHERE schedule_id = :schId", Ticket.class);
         query.setParameter("schId", "'"+scheduleId+"'");
