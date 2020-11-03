@@ -7,10 +7,13 @@ import javax.persistence.*;
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "location_id")
     private Long locationId;
+
     @Column(name = "location_name")
     private String locationName;
+
     @Column(name = "max_seats")
     private int maxSeats;
 

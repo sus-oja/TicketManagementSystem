@@ -12,8 +12,6 @@ public class ShowsDao {
         Transaction transaction = null;
 
         try {
-
-
             transaction = session.beginTransaction();
             session.save(shows);
             transaction.commit();
@@ -27,4 +25,22 @@ public class ShowsDao {
         }
         session.close();
     }
+
+
+    public Shows getShow(int showId) {
+        Session session = DBUtil.getSessionFactory().openSession();
+
+
+        try{
+            Shows shows = session.find(Shows.class, showId);
+            session.close();
+            return shows;
+        }catch (Exception ex){
+            session.close();
+            System.out.println("Unable to find the show with this id: " + showId);
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
 }

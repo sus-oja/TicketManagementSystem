@@ -26,6 +26,9 @@ public class Shows {
     @Column(name = "director")
     private String director;
 
+    public Shows() {
+    }
+
     public Shows(String title, String description, String duration, String type, String director) {
         this.director = director;
         this.duration = duration;
