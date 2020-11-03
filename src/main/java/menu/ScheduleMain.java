@@ -10,12 +10,7 @@ import repository.ShowsDao;
 import repository.TicketDao;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ScheduleMain {
     public static void main(String[] args) {
@@ -76,7 +71,7 @@ public class ScheduleMain {
         int max = loc.getMaxSeats();
 
         TicketDao ticketDao = new TicketDao();
-        List<Ticket> tickets = ticketDao.getTickets(scheduleId);
+        List<Ticket> tickets = ticketDao.getTickets();
 
         if (tickets.size() == max ) {
             System.out.println("Sorry, we are sold out!");

@@ -1,12 +1,10 @@
 package menu;
 
-import model.Location;
 import model.Schedule;
 import model.Ticket;
 import repository.ScheduleDao;
 import repository.TicketDao;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class TicketMain {
@@ -44,13 +42,13 @@ public class TicketMain {
         while (price == 0) {
             if (typeOfTicket == 1) {
                 price = 17.00;
-                ticket.setTicketPrice(price);
+                //ticket.setTicketPrice(price);
             } else if (typeOfTicket == 2) {
                 price = 15.00;
-                ticket.setTicketPrice(price);
+                //ticket.setTicketPrice(price);
             } else if (typeOfTicket == 3) {
                 price = 10.00;
-                ticket.setTicketPrice(price);
+                //ticket.setTicketPrice(price);
             } else {
                 System.out.println("Please enter the right code (1-3): ");
                 typeOfTicket = scan.nextInt();
@@ -59,38 +57,14 @@ public class TicketMain {
 
 //creating the tickets
         while (numberOfTickets > 0) {
-            ticketDao.createTicket(ticket);
-
-//adding scheduleId to the ticket
+            /*ticketDao.saveTicket(ticket);
             ScheduleDao scheduleDao = new ScheduleDao();
             Schedule schedule = scheduleDao.getSchedule(scheduleId);
-            ticket.setSchedule(schedule);
+            ticket.setSchedule(schedule);*/
 
-//pileti kliendiga sidumine tuleb siia
+            ticketDao.createTicket(price, scheduleId);
             numberOfTickets--;
         }
-
-
-      /*  See meetod läheb ClientMain'i
-
-        Client client = new Client();
-        ClientDao clientDao = new ClientDao();
-
-        System.out.println("Please enter your first name: ");
-        scan.nextLine();
-        String firstName = scan.nextLine();
-        client.setFirstName(firstName);
-
-        System.out.println("Please enter your last name: ");
-        String lastName = scan.nextLine();
-        client.setLastName(lastName);
-
-        System.out.println("Please enter your e-mail address: ");
-        String email = scan.nextLine();
-        client.setEmail(email);
-
-        //creating the client
-        clientDao.createClient(client);*/
 
 
         //System.out.println("Thank you, " + client.getFirstName() + " for your purchase. We hope you enjoy the show.");

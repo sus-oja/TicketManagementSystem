@@ -1,5 +1,8 @@
 package repository;
 
+import menu.ClientMain;
+import model.Client;
+import model.Schedule;
 import model.Ticket;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -10,7 +13,7 @@ import java.util.List;
 
 public class TicketDao {
 
-    public void createTicket(Ticket ticket) {
+    public void saveTicket(Ticket ticket) {
         Transaction transaction = null;
         Session session = DBUtil.getSessionFactory().openSession();
 
@@ -28,6 +31,24 @@ public class TicketDao {
         }
 
         session.close();
+    }
+
+    public void createTicket(double price, long scheduleId) {
+
+        Ticket ticket = new Ticket();
+        TicketDao ticketDao = new TicketDao();
+
+        ticket.setTicketPrice(price);
+
+        Client client = ClientMain.saveClient();
+        ticket.setClient(client);
+
+        ScheduleDao scheduleDao = new ScheduleDao();
+        Schedule schedule = scheduleDao.getSchedule(scheduleId);
+
+        ticket.setSchedule(schedule);
+        ticketDao.saveTicket(ticket);
+
     }
 
     public void updateTicket(Ticket ticket) {
@@ -66,12 +87,12 @@ public class TicketDao {
         return session.createQuery("from Ticket", Ticket.class).list();
     }
 //In JPQL (or HQL), you must use the Java class name and property names of the mapped @Entity instead of the actual table name and column names. So the JPQL (or HQL) should be:
-    public List<Ticket> getTickets(long scheduleId) {
+    /*public List<Ticket> getTickets(long scheduleId) {
         Session session = DBUtil.getSessionFactory().openSession();
         Query query = session.createQuery("FROM Ticket WHERE schedule_id = :schId", Ticket.class);
         query.setParameter("schId", "'"+scheduleId+"'");
         return query.list();
-    }
+    }*/
 
     public void deleteTicket(Ticket ticket) {
         Transaction transaction = null;

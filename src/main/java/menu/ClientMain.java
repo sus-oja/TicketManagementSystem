@@ -22,7 +22,7 @@ public class ClientMain {
         ClientDao clientDao = new ClientDao();
         clientDao.createClient(newClient);
 
-        System.out.println("The new client is: " + newClient.getFirstName() + " " + newClient.getLastName() + ", " + newClient.getEmail());
+        //System.out.println("The new client is: " + newClient.getFirstName() + " " + newClient.getLastName() + ", " + newClient.getEmail());
 
         return newClient;
 

@@ -16,7 +16,6 @@ public class Ticket {
     @Column(name = "ticket_id")
     private Long ticketId;
 
-
     @Column(name = "price")
     private Double ticketPrice;
 
@@ -24,7 +23,7 @@ public class Ticket {
     @JoinColumn(name = "schedule_id")
     private Schedule schedule;
 
-    @OneToOne (mappedBy = "ticket")
+    @OneToOne (mappedBy = "client_id")
     private Client client;
 
     @CreationTimestamp
@@ -40,7 +39,7 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket( Double ticketPrice) {
+    public Ticket(Double ticketPrice) {
         this.ticketPrice = ticketPrice;
     }
 
@@ -51,23 +50,6 @@ public class Ticket {
     public void setTicketId(Long ticketId) {
         this.ticketId = ticketId;
     }
-
- /*   public TicketType getTicketType(int customersChoice) {
-
-        if(customersChoice == 1) {
-            return TicketType.ADULT;
-        } else if(customersChoice == 2) {
-            return TicketType.STUDENT_CHILD;
-        } else if(customersChoice == 3) {
-            return TicketType.ELDERLY;
-        } else {
-            System.out.println("Please enter appropriate code from 1-3: ");
-            return null;
-        }
-
-    }*/
-
-
 
     public Double getTicketPrice() {
         return ticketPrice;
@@ -98,6 +80,14 @@ public class Ticket {
     }
     public void setSchedule(Schedule schedule) {
         this.schedule = schedule;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }
 

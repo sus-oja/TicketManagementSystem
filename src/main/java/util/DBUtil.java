@@ -44,7 +44,7 @@ public class DBUtil {
 
             properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
             properties.put(Environment.SHOW_SQL, "true");
-            properties.put(Environment.HBM2DDL_AUTO, "update");                           // this one should use carefully "create-drop" will do full data restart. Best even to comment out or use "update".
+            properties.put(Environment.HBM2DDL_AUTO, "create");                           // this one should use carefully "create-drop" will do full data restart. Best even to comment out or use "update".
             properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
 
