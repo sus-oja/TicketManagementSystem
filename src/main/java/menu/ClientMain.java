@@ -1,11 +1,7 @@
 package menu;
 
 import model.Client;
-import model.Schedule;
 import repository.ClientDao;
-import repository.ScheduleDao;
-
-import java.util.List;
 import java.util.Scanner;
 
 public class ClientMain {
