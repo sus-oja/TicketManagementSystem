@@ -18,7 +18,7 @@ public class Shows {
     private String description;
 
     @Column(name = "duration")
-    private String duration;
+    private int duration;
 
     @Column(name = "type")
     private String type;
@@ -29,7 +29,7 @@ public class Shows {
     public Shows() {
     }
 
-    public Shows(String title, String description, String duration, String type, String director) {
+    public Shows(String title, String description, int duration, String type, String director) {
         this.director = director;
         this.duration = duration;
         this.description = description;
@@ -61,11 +61,11 @@ public class Shows {
         this.description = description;
     }
 
-    public String getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 

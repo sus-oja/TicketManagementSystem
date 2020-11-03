@@ -84,7 +84,7 @@ public class TicketMain {
         while (numberOfTickets > 0) {
             ticketDao.createTicket(ticket);
 
-            //pileti kliendiga sidumine tuleb siia
+ //pileti kliendiga sidumine tuleb siia
  // midagi on ScheduleMain klassis AT
             numberOfTickets--;
         }

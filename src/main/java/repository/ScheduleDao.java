@@ -60,7 +60,7 @@ public class ScheduleDao {
             return null;
         }
     }
-
+// count jaoks
     public List<Schedule> getSchedules(){
         Session session = DBUtil.getSessionFactory().openSession();
         return session.createQuery("from Schedule", Schedule.class).list();
