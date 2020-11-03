@@ -55,8 +55,7 @@ public class LocationDao {
 
         try {
             Session session = DBUtil.getSessionFactory().openSession();
-            Location location = session.find(Location.class, locationId);
-            return location;
+            return session.find(Location.class, locationId);
             //session.close();
         } catch (Exception ex) {
             ex.printStackTrace();

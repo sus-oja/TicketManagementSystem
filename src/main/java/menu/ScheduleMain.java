@@ -77,10 +77,14 @@ public class ScheduleMain {
 
         TicketDao ticketDao = new TicketDao();
         List<Ticket> tickets = ticketDao.getTickets(scheduleId);
-        int soldTickets = tickets.size();
-        if (soldTickets == max )
+
+        if (tickets.size() == max ) {
             System.out.println("Sorry, we are sold out!");
-        //lisa siia ELSE, mis võrdleb ostetavat kogust alles jäänud istmetega
+        } /*else if (numberOfTickets > (max - tickets.size())) {
+            System.out.println("Sorry, we don't have that many tickets available. You can purchase maximum of " +
+                    (max- tickets.size()) + " ticket(s).");
+        }*/
+
     }
 
 

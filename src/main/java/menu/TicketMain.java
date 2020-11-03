@@ -29,7 +29,6 @@ public class TicketMain {
         System.out.println("Checking availability...");
         ScheduleMain.checkAvailability(scheduleId);
 
-
         System.out.println("How many tickets would you like to purchase? Enter number of tickets here: ");
         int numberOfTickets = scan.nextInt();
 
