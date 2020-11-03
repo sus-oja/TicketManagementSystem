@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class ClientMain {
 
-    public static void main(String[] args) {
+    public static Client saveClient() {
         Client newClient = new Client();
-
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Give first name: ");
         newClient.setFirstName(scanner.nextLine());
 
@@ -19,10 +19,12 @@ public class ClientMain {
         System.out.println("Give email: ");
         newClient.setEmail(scanner.nextLine());
 
-        //System.out.println(newClient.getFirstName());
-
         ClientDao clientDao = new ClientDao();
         clientDao.createClient(newClient);
+
+        System.out.println("The new client is: " + newClient.getFirstName() + " " + newClient.getLastName() + ", " + newClient.getEmail());
+
+        return newClient;
 
     }
 }
