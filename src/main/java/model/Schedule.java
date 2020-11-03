@@ -3,6 +3,9 @@ package model;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(schema = "theatre", name = "schedule")
@@ -15,8 +18,8 @@ public class Schedule {
     private Long scheduleId;
 
     @Column(name = "start_time")
-    private Date startTime;
-    //______________________
+    private LocalDateTime startTime;
+
     @OneToOne(mappedBy = "schedule")
     private Ticket ticket;
 
@@ -29,9 +32,10 @@ public class Schedule {
     private Shows show;
 
     public Schedule() {
+
     }
 
-    public Schedule(Date startTime) {
+    public Schedule(LocalDateTime startTime) {
         this.startTime = startTime;
     }
 
@@ -43,11 +47,12 @@ public class Schedule {
         this.scheduleId = scheduleId;
     }
 
-    public Date getStartTime() {
-        return startTime;
+    public String getStartTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        return startTime.format(formatter);
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(LocalDateTime startTime) {
         this.startTime = startTime;
     }
 

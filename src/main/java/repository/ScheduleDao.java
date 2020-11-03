@@ -46,6 +46,7 @@ public class ScheduleDao {
         }
         session.close();
     }
+
     public Schedule getSchedule(Long scheduleId) {
         Session session = DBUtil.getSessionFactory().openSession();
 
@@ -79,7 +80,7 @@ public class ScheduleDao {
         }
     }
 
-    public void removeSchedule(Schedule schedule) {
+    public void removeScheduleEntry(Schedule schedule) {
         Transaction transaction = null;
         Session session = DBUtil.getSessionFactory().openSession();
 
@@ -87,7 +88,7 @@ public class ScheduleDao {
             transaction = session.beginTransaction();
             session.delete(schedule);
             transaction.commit();
-            System.out.println("The schedule has been successfully removed.");
+            System.out.println("The schedule entry has been successfully removed.");
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());

@@ -18,42 +18,20 @@ public class TicketMain {
         Ticket ticket = new Ticket();
         TicketDao ticketDao = new TicketDao();
 
-        System.out.println("WELCOME TO UGALA!");
-        System.out.println("Which show would you like to see? ");
+        System.out.println("WELCOME TO UGALA! \nWhich show would you like to see?");
 
 // to show all Shows in schedules
-// meetodid tuleb kuidagi lahku lüüa
+        ScheduleMain.printSchedule();
 
-        //Schedule schedule = new Schedule();
-        ScheduleDao scheduleDao = new ScheduleDao();
-        List<Schedule> schedules = scheduleDao.getSchedules();
-
-        for (Schedule s:schedules
-             ) {
-           System.out.println(s.getScheduleId()+ " " + s.getShow().getTitle() + " " + s.getStartTime() + " " + s.getLocation().getLocationName());
-        }
-
-// for choosing show for buying
-        System.out.println("Please enter schedule ID number from the : ");
+        System.out.println("Please enter shows ID number from the schedule: ");
         int scheduleId = scan.nextInt();
 
         System.out.println("Checking availability...");
-
-// calculation of available seats per show
-
-        Schedule sch = schedules.get(scheduleId);
-        Location loc = sch.getLocation();
-        int max = loc.getMaxSeats();
-
-       List<Ticket> tickets = ticketDao.getTickets(scheduleId);
-       int soldTickets = tickets.size();
-       if (soldTickets == max )
-           System.out.println("Sorry, sold out! ");
-
+        ScheduleMain.checkAvailability(scheduleId);
     //ticket.setTicketId();
 
-    System.out.println("How many tickets would you like to purchase? Enter number of tickets here: ");
-    int numberOfTickets = scan.nextInt();
+        System.out.println("How many tickets would you like to purchase? Enter number of tickets here: ");
+        int numberOfTickets = scan.nextInt();
 
         System.out.println("What type of tickets would you like to purchase?\n");
         System.out.println("1 --- ADULT");
