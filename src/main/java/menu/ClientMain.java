@@ -6,10 +6,6 @@ import java.util.Scanner;
 
 public class ClientMain {
 
-    public static void main(String[] args) {
-    }
-
-    //public static void saveClient(String[] args) {
     public static Client saveClient() {
         Client newClient = new Client();
 

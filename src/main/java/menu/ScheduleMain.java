@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class ScheduleMain {
-    public static void main (String[] args){
+   public static void createSchedule (){
         //createScheduleEntry();
     }
     public static void createScheduleEntry(LocalDateTime starTime, int locationId, int showId){

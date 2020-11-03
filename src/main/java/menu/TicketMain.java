@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class TicketMain {
 
-    public static void main(String[] args) {
+    public static void createTicket() {
 
         Scanner scan = new Scanner(System.in);
 
@@ -56,12 +56,13 @@ public class TicketMain {
         }
 
 //creating the tickets
+            Client client = ClientMain.saveClient();
+
         while (numberOfTickets > 0) {
 
             Ticket ticket1 = new Ticket();
             ticket1.setTicketPrice(ticket.getTicketPrice());
 
-            Client client = ClientMain.saveClient();
             ticket1.setClient(client);
 
 //adding scheduleId to the ticket
