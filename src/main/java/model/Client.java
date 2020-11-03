@@ -25,12 +25,6 @@ public class Client {
     @Column(name = "email")
     private String email;
 
-    // siin on ticket seotud clientiga aga vajalik min vastupidi
-   /* @OneToOne
-    @JoinColumn(name = "ticket_id")
-    private Ticket ticket;*/
-
-
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at")
@@ -42,7 +36,6 @@ public class Client {
     private Date lastUpdated;
 
     public Client() {
-
     }
 
     public Client(String firstName, String lastName, String email) {

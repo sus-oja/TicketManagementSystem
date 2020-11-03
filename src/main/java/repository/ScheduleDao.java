@@ -3,6 +3,8 @@ package repository;
 import model.Schedule;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+import org.hibernate.query.spi.QueryImplementor;
 import util.DBUtil;
 
 import java.util.List;
@@ -29,20 +31,28 @@ public class ScheduleDao {
 
     public Schedule getSchedule(Long scheduleId) {
 
-        try{
+        try {
             Session session = DBUtil.getSessionFactory().openSession();
             return session.find(Schedule.class, scheduleId);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Unable to find the schedule with id: " + scheduleId);
             ex.printStackTrace();
             return null;
         }
     }
-// for counting
-    public List<Schedule> getSchedules(){
+
+    // for counting
+    public List<Schedule> getSchedules() {
+        Session session = DBUtil.getSessionFactory().openSession();
+        Query<Schedule> query = session.createQuery("from Schedule", Schedule.class);
+        return query.list();
+    }
+
+
+   /* public List<Schedule> getSchedules(){
         Session session = DBUtil.getSessionFactory().openSession();
         return session.createQuery("from Schedule", Schedule.class).list();
-    }
+    }*/
 
     public Schedule getScheduleEntry(long scheduleId) {
 

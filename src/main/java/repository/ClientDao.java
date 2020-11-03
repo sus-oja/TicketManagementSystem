@@ -1,14 +1,9 @@
 package repository;
 
 import model.Client;
-import model.Location;
-import org.hibernate.query.Query;
 import util.DBUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
-import java.util.List;
-
 
 public class ClientDao {
 

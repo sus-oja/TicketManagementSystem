@@ -1,10 +1,9 @@
 package model;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Entity
 @Table(schema = "theatre", name = "schedule")
@@ -19,8 +18,8 @@ public class Schedule {
     @Column(name = "start_time")
     private LocalDateTime startTime;
 
-    @OneToOne(mappedBy = "schedule")
-    private Ticket ticket;
+    @OneToMany(mappedBy = "schedule")
+    private List<Ticket> ticket;
 
     @OneToOne
     @JoinColumn(name = "location_id")
@@ -54,11 +53,11 @@ public class Schedule {
         this.startTime = startTime;
     }
 
-    public Ticket getTicket() {
+    public List<Ticket> getTicket() {
         return ticket;
     }
 
-    public void setTicket(Ticket ticket) {
+    public void setTicket(List<Ticket> ticket) {
         this.ticket = ticket;
     }
 
