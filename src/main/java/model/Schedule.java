@@ -22,11 +22,11 @@ public class Schedule {
     private List<Ticket> ticket;
 
     @OneToOne
-    @JoinColumn(name = "location_id")
+    @JoinColumn(name = "location_id", nullable = false)
     private Location location;
 
     @OneToOne
-    @JoinColumn(name = "show_id")
+    @JoinColumn(name = "show_id", nullable = false)
     private Shows show;
 
     public Schedule() {
@@ -46,7 +46,7 @@ public class Schedule {
     }
 
     public String getStartTime() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         return startTime.format(formatter);
     }
 
