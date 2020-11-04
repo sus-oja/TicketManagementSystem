@@ -92,6 +92,3 @@ public class ScheduleMain {
         return true;
     }
 } //ScheduleMain class
-
-
-}
