@@ -7,9 +7,12 @@ import util.DBUtil;
 
 import java.util.List;
 
+
 public class TicketDao {
 
+
     public void saveTicket(Ticket ticket) {
+
         Transaction transaction = null;
         Session session = DBUtil.getSessionFactory().openSession();
 
