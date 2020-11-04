@@ -5,7 +5,7 @@ import repository.LocationDao;
 
 public class LocationMain {
 
-    public static void saveLocation() {
+    public static void enterLocations() {
 
         Location grandAuditorium = new Location("The Grand Auditorium", 540);
         Location smallAuditorium = new Location("The Small Auditorium", 155);

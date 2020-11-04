@@ -1,20 +1,26 @@
 package menu;
 
-import model.*;
-import repository.*;
+import model.Location;
+import model.Schedule;
+import model.Shows;
+import model.Ticket;
+import repository.LocationDao;
+import repository.ScheduleDao;
+import repository.ShowsDao;
+import repository.TicketDao;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class ScheduleMain {
-   public static void createSchedule (){
+    public static void main(String[] args) {
+        LocalDateTime showTime = LocalDateTime.of(2020, 11, 30, 19, 00);
+        createScheduleEntry(showTime, 2, 4);
+    }
 
-        }
+    public static void createScheduleEntry(LocalDateTime startTime, int locationId, int showId) {
 
-    public static void createScheduleEntry(LocalDateTime starTime, int locationId, int showId){
-
-        LocalDateTime showTime = LocalDateTime.of(2020,12,5,19,00);
-        Schedule schedule = new Schedule(starTime);
+        Schedule schedule = new Schedule(startTime);
 
         LocationDao locationDao = new LocationDao();
         Location location = locationDao.getLocation(locationId);
@@ -28,6 +34,7 @@ public class ScheduleMain {
         scheduleDao.createSchedule(schedule);
 
         System.out.println(schedule.getStartTime());
+
     }
     //createSchedule
 
@@ -44,9 +51,7 @@ public class ScheduleMain {
         }
     }
 
-//calculation of available seats per show
-
-    public static void checkAvailability(long scheduleId) {
+    public static boolean checkAvailability(long scheduleId, int numberOfTickets) {
         ScheduleDao scheduleDao = new ScheduleDao();
         List<Schedule> schedules = scheduleDao.getSchedules();
 
@@ -65,11 +70,28 @@ public class ScheduleMain {
 
         TicketDao ticketDao = new TicketDao();
         List<Ticket> tickets = ticketDao.getTickets(scheduleId);
-        int soldTickets = tickets.size();
-        if (soldTickets == max )
+
+        if (tickets.size() >= max) {
             System.out.println("Sorry, we are sold out!");
-        //lisa siia ELSE, mis võrdleb ostetavat kogust alles jäänud istmetega
+            return false;
+
+        } else if (numberOfTickets > (max - tickets.size())) {
+            System.out.println("Sorry, we don't have that many tickets available. You can purchase maximum of " +
+                    (max - tickets.size()) + " ticket(s).");
+            return false;
+
+        } else if (numberOfTickets <= (max - tickets.size())){
+            System.out.println("What type of tickets would you like to purchase?\n");
+            System.out.println("1 --- ADULT");
+            System.out.println("2 --- STUDENT/CHILD");
+            System.out.println("3 --- ELDERLY\n");
+            System.out.println("Please enter your code here: ");
+
+            return true;
+        }
+        return true;
     }
 } //ScheduleMain class
 
 
+}

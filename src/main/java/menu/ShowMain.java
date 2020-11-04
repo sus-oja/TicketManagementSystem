@@ -3,9 +3,9 @@ package menu;
 import model.Shows;
 import repository.ShowsDao;
 
-public class RunningShow {
+public class ShowMain {
 
-    public static void createShow() {
+    public static void enterShows() {
         Shows shows1 = new Shows("Emadepäev", "“Emadepäev” heitlik, paiguti naerma " +
                 "ja paiguti hulluks ajav lavastus täis kraaklemist, rõõmu, nuttu, " +
                 "armastust, ürgvarajasi hommikuid ja hirmhiliseid õhtuid, kõikjal " +

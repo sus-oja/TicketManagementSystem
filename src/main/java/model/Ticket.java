@@ -16,7 +16,6 @@ public class Ticket {
     @Column(name = "ticket_id")
     private Long ticketId;
 
-
     @Column(name = "price")
     private Double ticketPrice;
 
@@ -25,7 +24,7 @@ public class Ticket {
     private Schedule schedule;
 
     @OneToOne
-    @JoinColumn(name = "client_id")
+    @JoinColumn (name = "client_id")
     private Client client;
 
     @CreationTimestamp
@@ -41,7 +40,7 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket( Double ticketPrice) {
+    public Ticket(Double ticketPrice) {
         this.ticketPrice = ticketPrice;
     }
 
@@ -76,9 +75,11 @@ public class Ticket {
     public void setLastUpdated(Date lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
+
     public Schedule getSchedule() {
         return schedule;
     }
+
     public void setSchedule(Schedule schedule) {
         this.schedule = schedule;
     }
