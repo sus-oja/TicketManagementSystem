@@ -6,9 +6,9 @@ import javax.persistence.*;
 @Table(schema = "theatre", name = "shows")
 public class Shows {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //behavior of field in SQL
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "show_id")                   // AT lisas puuduva show_id
+    @Column(name = "show_id")
     private int showId;
 
     @Column(name = "title")
