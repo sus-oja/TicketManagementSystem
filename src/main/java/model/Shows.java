@@ -15,7 +15,7 @@ public class Shows {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "description", length = 1000)
+    @Column(name = "description", length = 1200)
     private String description;
 
     @Column(name = "duration")

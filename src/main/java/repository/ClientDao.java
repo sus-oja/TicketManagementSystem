@@ -57,17 +57,6 @@ public class ClientDao {
         }
     }
 
-   /* public List<Client> getClients() {
-        Session session = DBUtil.getSessionFactory().openSession();
-        return session.createQuery("from Client", Client.class).list();
-    }
-    //In JPQL (or HQL), you must use the Java class name and property names of the mapped @Entity instead of the actual table name and column names.
-    public List<Client> getClients(int ticketId) {
-        Session session = DBUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("FROM Client WHERE ticket_id = :ticId", Client.class); //or ticket
-        query.setParameter("ticId", "'"+ticketId+"'");
-        return query.list();
-    }*/
 
     public void deleteClient(Client client) {
         Transaction transaction = null;
