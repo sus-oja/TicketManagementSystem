@@ -1,32 +1,32 @@
-iimport java.time.LocalDateTime;
-import menu.*;
+import services.*;
+
+import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) {
 
-        /*LocationMain.enterLocations();
+        //the full process of buying a ticket with creating the show and a client.
+
+       /* LocationMain.enterLocations();
         ShowMain.enterShows();
 
         LocalDateTime showTime = LocalDateTime.of(2020, 11, 30, 19, 00);
         ScheduleMain.createScheduleEntry(showTime, 1, 1);*/
 
-        TicketMain.purchaseTickets();
+        //TicketMain.purchaseTickets();
 
     }
 
-    public static void separatedActions(){
-    // comment out suitable method for run.
+    public static void separatedServiceRun(){
 
-        ClientMain.saveClient ();
+        // separated functionalities to enter data of Client, Show, Location
+        // comment out suitable method for run.
 
-        RunningShow.createShow();
+        //ClientMain.enterClient(); // midagi on valesti
 
-        LocationMain.saveLocation();
+        //ShowMain.enterShows();
 
-        //TicketMain.createTicket(); ----> jookseb, kui võtta meetodist ära sisu( String[] args) aga siis küsib kõigepealt Client parameetreid ja protsess läheb edasi.
-
-        //ScheduleMain.createSchedule();
-
+        LocationMain.enterLocations();
 
     }
 }

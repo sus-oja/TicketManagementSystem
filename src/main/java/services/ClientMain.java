@@ -1,4 +1,4 @@
-package menu;
+package services;
 
 import model.Client;
 import repository.ClientDao;
@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ClientMain {
 
-    public static Client saveClient() {
+    public static Client enterClient() {
         Client newClient = new Client();
 
         Scanner scanner = new Scanner(System.in);

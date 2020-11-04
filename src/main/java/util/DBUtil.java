@@ -33,15 +33,15 @@ public class DBUtil {
             // just comment out own to make a connection
 
             //Airika user
-            /*properties.put(Environment.USER, applicationProperties.getString("dbUsernameAir"));
-            properties.put(Environment.PASS, applicationProperties.getString("dbPasswordAir"));*/
+            properties.put(Environment.USER, applicationProperties.getString("dbUsernameAir"));
+            properties.put(Environment.PASS, applicationProperties.getString("dbPasswordAir"));
             //Kristiina user
             /*properties.put(Environment.USER, applicationProperties.getString("dbUsernameKri"));
             properties.put(Environment.PASS, applicationProperties.getString("dbPasswordKri"));*/
             //Susanna user
-            properties.put(Environment.USER, applicationProperties.getString("dbUsernameSus"));
+            /*properties.put(Environment.USER, applicationProperties.getString("dbUsernameSus"));
             properties.put(Environment.PASS, applicationProperties.getString("dbPasswordSus"));
-
+*/
             properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
             properties.put(Environment.SHOW_SQL, "true");
             properties.put(Environment.HBM2DDL_AUTO, "update");                           // this one should use carefully "create-drop" will do full data restart. Best even to comment out or use "update".

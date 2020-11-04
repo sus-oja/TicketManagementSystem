@@ -57,7 +57,6 @@ public class ScheduleDao {
             ex.printStackTrace();
             return null;
         }
-
     }
 
     public List<Schedule> getSchedules(){

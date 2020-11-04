@@ -1,4 +1,4 @@
-package menu;
+package services;
 
 import model.Client;
 import repository.TicketDao;
@@ -45,7 +45,7 @@ public class TicketMain {
         }
 
 
-        Client client = ClientMain.saveClient();
+        Client client = ClientMain.enterClient();
         while (numberOfTickets > 0) {
             ticketDao.createTicket(price, scheduleId, client);
             numberOfTickets--;

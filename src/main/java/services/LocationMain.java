@@ -1,4 +1,4 @@
-package menu;
+package services;
 
 import model.Location;
 import repository.LocationDao;

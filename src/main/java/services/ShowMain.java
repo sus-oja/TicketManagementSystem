@@ -1,4 +1,4 @@
-package menu;
+package services;
 
 import model.Shows;
 import repository.ShowsDao;
