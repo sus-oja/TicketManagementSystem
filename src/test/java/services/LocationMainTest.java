@@ -3,7 +3,6 @@ package services;
 import menu.LocationMain;
 import model.Location;
 import org.junit.jupiter.api.*;
-import repository.LocationDao;
 
 public class LocationMainTest {
     public Location location1;

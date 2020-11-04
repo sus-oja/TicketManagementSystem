@@ -13,11 +13,11 @@ public class ScheduleMainTest {
 
     @BeforeEach
     public void setUp() {
-        ScheduleMain.createScheduleEntry(LocalDateTime.of(2020, 12, 1, 19, 00), 3, 3);
-        ScheduleMain.createScheduleEntry(LocalDateTime.of(2020, 12, 2, 19, 00), 2, 4);
-        ScheduleMain.createScheduleEntry(LocalDateTime.of(2020, 12, 3, 19, 00), 1, 5);
-        ScheduleMain.createScheduleEntry(LocalDateTime.of(2020, 12, 4, 19, 00), 4, 6);
-        ScheduleMain.createScheduleEntry(LocalDateTime.of(2020, 12, 4, 19, 00), 2, 7);
+        ScheduleMain.createScheduleEntry(LocalDateTime.of(2020, 12, 1, 19, 0), 3, 3);
+        ScheduleMain.createScheduleEntry(LocalDateTime.of(2020, 12, 2, 19, 0), 2, 4);
+        ScheduleMain.createScheduleEntry(LocalDateTime.of(2020, 12, 3, 19, 0), 1, 5);
+        ScheduleMain.createScheduleEntry(LocalDateTime.of(2020, 12, 4, 19, 0), 4, 6);
+        ScheduleMain.createScheduleEntry(LocalDateTime.of(2020, 12, 4, 19, 0), 2, 7);
     }
 
     @Test()

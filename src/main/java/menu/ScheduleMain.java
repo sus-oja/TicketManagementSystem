@@ -1,22 +1,13 @@
 package menu;
 
-import model.Location;
-import model.Schedule;
-import model.Shows;
-import model.Ticket;
-import repository.LocationDao;
-import repository.ScheduleDao;
-import repository.ShowsDao;
-import repository.TicketDao;
+import model.*;
+import repository.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class ScheduleMain {
-/*    public static void main(String[] args) {
-        LocalDateTime showTime = LocalDateTime.of(2020, 11, 30, 19, 00);
-        createScheduleEntry(showTime, 2, 4);
-    }*/
+
     public static void createScheduleEntry(LocalDateTime startTime, int locationId, int showId) {
 
         Schedule schedule = new Schedule(startTime);
@@ -89,4 +80,4 @@ public class ScheduleMain {
         }
         return true;
     }
-} //ScheduleMain class
+}

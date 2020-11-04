@@ -7,7 +7,7 @@ public class Main {
         //LocationMain.enterLocations();
         //ShowMain.enterShows();
 
-        LocalDateTime showTime = LocalDateTime.of(2020, 11, 15, 17, 00);
+        LocalDateTime showTime = LocalDateTime.of(2020, 11, 15, 17, 0);
         ScheduleMain.createScheduleEntry(showTime, 4, 7);
 
         //TicketMain.purchaseTickets();
