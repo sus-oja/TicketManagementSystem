@@ -1,6 +1,6 @@
 package services;
 
-import menu.ScheduleMain;
+import services.ScheduleMain;
 import model.Schedule;
 import org.junit.jupiter.api.*;
 import repository.ScheduleDao;
