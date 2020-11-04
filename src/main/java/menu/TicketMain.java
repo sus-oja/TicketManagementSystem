@@ -7,11 +7,7 @@ import java.util.Scanner;
 
 public class TicketMain {
 
-<<<<<<< HEAD
-    public static void createTicket(String[] args) {
-=======
     public static void purchaseTickets() {
->>>>>>> c9666d13df0f8ed2fed87db6dd14eaf901369f45
 
         Scanner scan = new Scanner(System.in);
         TicketDao ticketDao = new TicketDao();
@@ -48,24 +44,12 @@ public class TicketMain {
             }
         }
 
-<<<<<<< HEAD
-//creating the tickets
-            Client client = ClientMain.saveClient();
-
-        while (numberOfTickets > 0) {
-
-            Ticket ticket1 = new Ticket();
-            ticket1.setTicketPrice(ticket.getTicketPrice());
-
-            ticket1.setClient(client);
-=======
 
         Client client = ClientMain.saveClient();
         while (numberOfTickets > 0) {
             ticketDao.createTicket(price, scheduleId, client);
             numberOfTickets--;
         }
->>>>>>> c9666d13df0f8ed2fed87db6dd14eaf901369f45
 
         System.out.println("Thank you, " + client.getFirstName() + ", for your purchase. We hope you enjoy the show!");
 

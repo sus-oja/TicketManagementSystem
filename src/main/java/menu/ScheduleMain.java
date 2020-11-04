@@ -13,18 +13,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class ScheduleMain {
-<<<<<<< HEAD
-   public static void createSchedule (){
-
-        }
-
-    public static void createScheduleEntry(LocalDateTime starTime, int locationId, int showId){
-=======
     public static void main(String[] args) {
         LocalDateTime showTime = LocalDateTime.of(2020, 11, 30, 19, 00);
         createScheduleEntry(showTime, 2, 4);
     }
->>>>>>> c9666d13df0f8ed2fed87db6dd14eaf901369f45
 
     public static void createScheduleEntry(LocalDateTime startTime, int locationId, int showId) {
 
@@ -44,6 +36,7 @@ public class ScheduleMain {
         System.out.println(schedule.getStartTime());
 
     }
+    //createSchedule
 
     public static void printSchedule() {
         ScheduleDao scheduleDao = new ScheduleDao();
@@ -98,6 +91,4 @@ public class ScheduleMain {
         }
         return true;
     }
-
-
-}
+} //ScheduleMain class
