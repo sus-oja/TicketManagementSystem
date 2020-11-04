@@ -1,16 +1,17 @@
 package repository;
 
+import model.Client;
+import model.Schedule;
 import model.Ticket;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 import util.DBUtil;
 
 import java.util.List;
 
 public class TicketDao {
 
-    public void createTicket(Ticket ticket) {
+    public void saveTicket(Ticket ticket) {
         Transaction transaction = null;
         Session session = DBUtil.getSessionFactory().openSession();
 
@@ -28,6 +29,22 @@ public class TicketDao {
         }
 
         session.close();
+    }
+
+    public void createTicket(double price, long scheduleId, Client client) {
+
+        Ticket ticket = new Ticket();
+        TicketDao ticketDao = new TicketDao();
+
+        ticket.setTicketPrice(price);
+        ticket.setClient(client);
+
+        ScheduleDao scheduleDao = new ScheduleDao();
+        Schedule schedule = scheduleDao.getSchedule(scheduleId);
+
+        ticket.setSchedule(schedule);
+        ticketDao.saveTicket(ticket);
+
     }
 
     public void updateTicket(Ticket ticket) {
@@ -54,22 +71,20 @@ public class TicketDao {
         try {
             Session session = DBUtil.getSessionFactory().openSession();
             Ticket ticket = session.find(Ticket.class, ticketId);
+            //session.close();
         } catch (Exception ex) {
             ex.printStackTrace();
             System.out.println("Unable to find the location you are looking for.");
         }
     }
 
-    public List<Ticket> getTickets() {
+
+//In JPQL (or HQL), you must use the Java class name and property names of the mapped @Entity instead of the actual table name and column names.
+//So the JPQL (or HQL) should be:
+    public List<Ticket> getTickets(long scheduleId) {
         Session session = DBUtil.getSessionFactory().openSession();
-        return session.createQuery("from Ticket", Ticket.class).list();
-    }
-//In JPQL (or HQL), you must use the Java class name and property names of the mapped @Entity instead of the actual table name and column names. So the JPQL (or HQL) should be:
-    public List<Ticket> getTickets(Long scheduleId) {
-        Session session = DBUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("FROM Ticket WHERE schedule_id = :schId", Ticket.class);
-        query.setParameter("schId", "'"+scheduleId+"'");
-        return query.list();
+        String hql = "from Ticket WHERE schedule_id = :scheduleId";
+        return session.createQuery(hql,Ticket.class).setParameter("scheduleId", scheduleId).list();
     }
 
     public void deleteTicket(Ticket ticket) {

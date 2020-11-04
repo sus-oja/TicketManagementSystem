@@ -5,7 +5,11 @@ import repository.LocationDao;
 
 public class LocationMain {
 
+<<<<<<< HEAD
     public static void saveLocation() {
+=======
+    public static void enterLocations() {
+>>>>>>> c9666d13df0f8ed2fed87db6dd14eaf901369f45
 
         Location grandAuditorium = new Location("The Grand Auditorium", 540);
         Location smallAuditorium = new Location("The Small Auditorium", 155);
@@ -18,8 +22,6 @@ public class LocationMain {
         locationDao.createLocation(smallAuditorium);
         locationDao.createLocation(chamberHall);
         locationDao.createLocation(cellarHall);
-
-        //System.out.println("The show will be held in the room nr " + locationDao.getLocation(smallAuditorium.getLocationId()));
 
     }
 

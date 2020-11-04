@@ -29,7 +29,8 @@ public class Schedule {
     @JoinColumn(name = "show_id")
     private Shows show;
 
-        public Schedule() {
+    public Schedule() {
+
     }
 
     public Schedule(LocalDateTime startTime) {
