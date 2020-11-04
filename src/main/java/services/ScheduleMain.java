@@ -1,13 +1,7 @@
 package services;
 
-import model.Location;
-import model.Schedule;
-import model.Shows;
-import model.Ticket;
-import repository.LocationDao;
-import repository.ScheduleDao;
-import repository.ShowsDao;
-import repository.TicketDao;
+import model.*;
+import repository.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -32,7 +26,6 @@ public class ScheduleMain {
         System.out.println(schedule.getStartTime());
 
     }
-    //createSchedule
 
     public static void printSchedule() {
         ScheduleDao scheduleDao = new ScheduleDao();
@@ -87,4 +80,4 @@ public class ScheduleMain {
         }
         return true;
     }
-} //ScheduleMain class
+}

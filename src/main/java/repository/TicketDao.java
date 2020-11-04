@@ -1,8 +1,6 @@
 package repository;
 
-import model.Client;
-import model.Schedule;
-import model.Ticket;
+import model.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.DBUtil;
@@ -78,9 +76,6 @@ public class TicketDao {
         }
     }
 
-
-//In JPQL (or HQL), you must use the Java class name and property names of the mapped @Entity instead of the actual table name and column names.
-//So the JPQL (or HQL) should be:
     public List<Ticket> getTickets(long scheduleId) {
         Session session = DBUtil.getSessionFactory().openSession();
         String hql = "from Ticket WHERE schedule_id = :scheduleId";

@@ -38,6 +38,7 @@ public class Ticket {
     private Date lastUpdated;
 
     public Ticket() {
+
     }
 
     public Ticket(Double ticketPrice) {
