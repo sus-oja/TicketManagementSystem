@@ -20,11 +20,11 @@ public class Ticket {
     private Double ticketPrice;
 
     @ManyToOne
-    @JoinColumn(name = "schedule_id")
+    @JoinColumn(name = "schedule_id", nullable = false)
     private Schedule schedule;
 
     @OneToOne
-    @JoinColumn (name = "client_id")
+    @JoinColumn (name = "client_id", nullable = false)
     private Client client;
 
     @CreationTimestamp

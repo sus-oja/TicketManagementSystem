@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ShowMain {
 
-    public static void enterShows() {
+    public static Shows enterShows() {
 
         Shows newShow = new Shows();
         Scanner scanner = new Scanner(System.in);
@@ -31,7 +31,7 @@ public class ShowMain {
 
         System.out.println(" The new show is: " + newShow.getTitle() + " " + newShow.getType() + " " + newShow.getShowId());
 
-
+        return newShow;
     }
 }
 
