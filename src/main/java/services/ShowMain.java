@@ -2,10 +2,43 @@ package services;
 
 import model.Shows;
 import repository.ShowsDao;
+import java.util.Scanner;
 
 public class ShowMain {
 
     public static void enterShows() {
+
+        Shows newShow = new Shows();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Give Title name: ");
+        newShow.setTitle(scanner.nextLine());
+
+        System.out.println("Enter description: ");
+        newShow.setDescription(scanner.nextLine());
+
+        System.out.println("Give type: ");
+        newShow.setType(scanner.nextLine());
+
+        System.out.println("Director");
+        newShow.setDirector(scanner.nextLine());
+
+        System.out.println("duration");
+        newShow.setDuration(scanner.nextInt());
+
+        ShowsDao showsDao = new ShowsDao();
+        showsDao.createShows(newShow);
+
+        System.out.println(" The new show is: " + newShow.getTitle() + " " + newShow.getType() + " " + newShow.getShowId());
+
+
+    }
+}
+
+        //return newShow;
+
+/*
+
         Shows shows1 = new Shows("Emadepäev", "“Emadepäev” heitlik, paiguti naerma " +
                 "ja paiguti hulluks ajav lavastus täis kraaklemist, rõõmu, nuttu, " +
                 "armastust, ürgvarajasi hommikuid ja hirmhiliseid õhtuid, kõikjal " +
@@ -41,6 +74,4 @@ public class ShowMain {
         showsDao.createShows(shows3);
         showsDao.createShows(shows4);
         showsDao.createShows(shows5);
-
-    }
-}
+*/

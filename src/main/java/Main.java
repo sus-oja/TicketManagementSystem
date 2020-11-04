@@ -5,28 +5,24 @@ import java.time.LocalDateTime;
 public class Main {
     public static void main(String[] args) {
 
-        //the full process of buying a ticket with creating the show and a client.
+    // Separated functionalities to enter data of Client, Show, Location
 
-       /* LocationMain.enterLocations();
-        ShowMain.enterShows();
+        //LocationMain.enterLocations();
 
-        LocalDateTime showTime = LocalDateTime.of(2020, 11, 30, 19, 00);
-        ScheduleMain.createScheduleEntry(showTime, 1, 1);*/
+        //ClientMain.enterClient();
 
-        //TicketMain.purchaseTickets();
-
-    }
-
-    public static void separatedServiceRun(){
-
-        // separated functionalities to enter data of Client, Show, Location
-        // comment out suitable method for run.
-
-        //ClientMain.enterClient(); // midagi on valesti
+    //  Functionalities to enter Show and time of occurrence
 
         //ShowMain.enterShows();
 
-        LocationMain.enterLocations();
+       /* LocalDateTime showTime = LocalDateTime.of(2020, 12, 12, 19, 00);
+        ScheduleMain.createScheduleEntry(showTime, 1, 19);*/
+
+
+    // the full process of buying a ticket with creating the show and a client.
+
+
+        TicketMain.purchaseTickets();
 
     }
 }
